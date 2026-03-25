@@ -37,16 +37,14 @@ class KnightTwoSquaresBoard(PerturbedBoard):
         if self._ATTACKS is None:
             type(self)._ATTACKS = self._build_attack_table()
 
-        for move in super().generate_pseudo_legal_moves(from_mask, to_mask):
-            if self.piece_type_at(move.from_square) == chess.KNIGHT:
-                continue
+        # 1. Non-knight moves
+        for move in super().generate_pseudo_legal_moves(from_mask & ~int(self.pieces(chess.KNIGHT, self.turn)), to_mask):
             yield move
 
-        knights = self.pieces(chess.KNIGHT, self.turn)
+        # 2. Knight-two-squares moves
+        for sq in self.pieces(chess.KNIGHT, self.turn) & from_mask:
+            attacks = self._ATTACKS[sq] & to_mask
+            targets = attacks & ~int(self.occupied_co[self.turn])
 
-        for sq in knights:
-            attacks = self._ATTACKS[sq]
-            attacks &= ~self.occupied_co[self.turn]
-
-            for target in chess.scan_forward(attacks):
+            for target in chess.scan_forward(int(targets)):
                 yield chess.Move(sq, target)

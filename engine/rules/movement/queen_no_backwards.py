@@ -7,8 +7,8 @@ class QueenNoBackwardsBoard(PerturbedBoard):
     category = "movement"
     difficulty = "easy"
 
-    def generate_legal_moves(self, from_mask=chess.BB_ALL, to_mask=chess.BB_ALL):
-        for move in super().generate_legal_moves(from_mask, to_mask):
+    def generate_pseudo_legal_moves(self, from_mask=chess.BB_ALL, to_mask=chess.BB_ALL):
+        for move in super().generate_pseudo_legal_moves(from_mask, to_mask):
             if self.piece_type_at(move.from_square) != chess.QUEEN:
                 yield move
                 continue
