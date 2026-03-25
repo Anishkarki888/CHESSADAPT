@@ -19,7 +19,12 @@ def interactive_session(fen: str, rule_name: str):
     while True:
         print("\n" + "=" * 40)
         print_board(board)
-        print_legal_moves(board)
+
+        # FIX: store moves ONCE
+        legal_moves = list(board.legal_moves)
+
+        print(f"\nLegal moves ({len(legal_moves)}):")
+        print(", ".join(m.uci() for m in legal_moves))
 
         move_uci = input("\nEnter move (or 'q'): ").strip()
         if move_uci == "q":
@@ -31,7 +36,8 @@ def interactive_session(fen: str, rule_name: str):
             print("Invalid UCI format")
             continue
 
-        if move not in board.legal_moves:
+        # use stored list
+        if move not in legal_moves:
             print("Illegal move under this rule")
             continue
 
