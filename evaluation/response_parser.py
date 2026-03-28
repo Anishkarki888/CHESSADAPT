@@ -17,7 +17,7 @@ import logging
 logger = logging.getLogger("chessadapt.response_parser")
 
 # Matches standard UCI moves: source_square + target_square + optional promotion
-_UCI_PATTERN = re.compile(r"\b([a-h][1-8][a-h][1-8][qrbnQRBN]?)\b")
+_UCI_PATTERN = re.compile(r"\b([a-h][1-8][a-h][1-8][qrbnQRBN]?)\b", re.IGNORECASE)
 
 
 class ResponseParser:
@@ -54,9 +54,7 @@ class ResponseParser:
             return []
 
         # Normalize: strip markdown code fences
-        cleaned = raw_response.strip()
-        cleaned = re.sub(r"```\w*\n?", "", cleaned)
-        cleaned = re.sub(r"```", "", cleaned)
+        cleaned = raw_response.replace("```", " ")
 
         # Find all UCI-pattern matches
         matches = _UCI_PATTERN.findall(cleaned)

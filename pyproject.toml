@@ -1,0 +1,44 @@
+[project]
+name = "chess_adapt"
+version = "0.1.0"
+description = "A benchmark for LLM adaptation to perturbed chess rules"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "python-chess>=1.10.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=5.0.0",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+llm = [
+    "openai>=1.0.0",
+    "langchain>=0.1.0",
+    "langchain-openai>=0.1.0",
+    "langchain-core>=0.1.0",
+    "python-dotenv>=1.0.0",
+]
+dev = [
+    "black>=24.0.0",
+    "isort>=5.13.0",
+    "mypy>=1.9.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["engine/tests", "tests"]
+python_files = "test_*.py"
+markers = [
+    "smoke: quick smoke tests",
+    "engine: chess engine rule tests",
+    "eval: evaluation pipeline tests",
+]
+addopts = "--strict-markers --cov=engine --cov-report=term-missing"
+
+[tool.hatch.build.targets.wheel]
+packages = ["engine", "evaluation"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

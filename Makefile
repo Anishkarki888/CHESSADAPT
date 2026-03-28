@@ -12,9 +12,8 @@
 #   make clean       — remove generated data
 
 # ── Configuration ────────────────────────────────────────────────────────────
-PYTHON       := .venv/bin/python
-PYTEST       := .venv/bin/python -m pytest
-PIP          := .venv/bin/pip
+PYTHON       := uv run python
+PYTEST       := uv run pytest
 
 POSITIONS    := data/positions/positions.jsonl
 TASKS        := data/tasks/tasks.jsonl
@@ -32,7 +31,8 @@ T3_COUNT     ?= 100
 
 # ── Phony targets ────────────────────────────────────────────────────────────
 .PHONY: help install test lint data tasks evaluate evaluate-all analyze \
-        report clean clean-results clean-tasks clean-all dry-run
+        report clean clean-results clean-tasks clean-all dry-run \
+        test-smoke test-eval test-engine test-coverage
 
 # ── Help ─────────────────────────────────────────────────────────────────────
 help: ## Show this help message
@@ -51,26 +51,26 @@ help: ## Show this help message
 	@echo ""
 
 # ── Setup ────────────────────────────────────────────────────────────────────
-.venv:
-	python3 -m venv .venv
-
-install: .venv ## Install all dependencies
-	$(PIP) install -r requirements.txt
+install: ## Install all dependencies using uv
+	uv sync --extra llm --extra dev
 	@echo "✓ Dependencies installed"
 
 # ── Testing ──────────────────────────────────────────────────────────────────
 test: ## Run all tests
-	$(PYTEST) engine/tests/ -v
+	$(PYTEST) -v
 	@echo "✓ All tests passed"
 
-test-composition: ## Run composition module tests only
-	$(PYTEST) engine/tests/test_composition.py -v
+test-smoke: ## Run quick smoke tests
+	$(PYTEST) -m smoke -v
 
-test-movement: ## Run movement rule tests only
-	$(PYTEST) engine/tests/test_movement_rules.py -v
+test-engine: ## Run chess engine rule tests
+	$(PYTEST) -m engine -v
+
+test-eval: ## Run evaluation pipeline tests
+	$(PYTEST) -m eval -v
 
 test-coverage: ## Run tests with coverage report
-	$(PYTEST) engine/tests/ --cov=engine --cov-report=term-missing -v
+	$(PYTEST) --cov=engine --cov=evaluation --cov-report=term-missing -v
 
 # ── Data Pipeline ────────────────────────────────────────────────────────────
 $(POSITIONS):
@@ -137,4 +137,6 @@ clean-all: clean ## Remove everything including positions
 	rm -f $(POSITIONS)
 	rm -rf .pytest_cache
 	rm -rf engine/__pycache__ evaluation/__pycache__
+	rm -rf .venv
 	@echo "✓ Full clean complete"
+

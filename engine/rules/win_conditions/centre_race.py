@@ -7,8 +7,8 @@ class CentreRaceBoard(PerturbedBoard):
     category = "win_condition"
     difficulty = "medium"
 
-    def __init__(self, fen=None):
-        super().__init__(fen)
+    def __init__(self, fen=chess.STARTING_FEN, *args, **kwargs):
+        super().__init__(fen, *args, **kwargs)
         self._winner_stack = []
 
     def push(self, move):

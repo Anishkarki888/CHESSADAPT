@@ -7,8 +7,8 @@ class TwoMovesPerTurnBoard(PerturbedBoard):
     category = "turn_structure"
     difficulty = "hard"
 
-    def __init__(self, fen=None):
-        super().__init__(fen)
+    def __init__(self, fen=chess.STARTING_FEN, *args, **kwargs):
+        super().__init__(fen, *args, **kwargs)
         self._first_move_stack = []
 
     def push(self, move):
