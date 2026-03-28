@@ -1,1 +1,6 @@
-"reusable behavior blocks"
+
+class LoggingMixin:
+    pass 
+
+class StateTracking:
+    pass 

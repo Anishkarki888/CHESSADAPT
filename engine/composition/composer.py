@@ -1,1 +1,3 @@
-"combines multiple rules"
+class Composer:
+    pass 
+
