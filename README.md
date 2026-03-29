@@ -101,8 +101,7 @@ print(composer.rule_delta())
 export OPENAI_API_KEY="sk-..."
 export ANTHROPIC_API_KEY="sk-ant-..."
 export GOOGLE_API_KEY="..."
-export OPENROUTER_API_KEY="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"
-x-ai/grok-4.1-fast
+export OPENROUTER_API_KEY="sk-or-v1-..."
 ```
 
 ### Run Evaluation
