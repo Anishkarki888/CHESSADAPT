@@ -1,0 +1,30 @@
+# ChessAdapt Benchmark Configuration
+benchmark:
+  name: "ChessAdapt"
+  version: "1.0.0"
+  description: "A dataset and evaluation pipeline for testing LLMs under perturbed chess rules."
+
+models:
+  - id: "gpt-4o"
+    name: "GPT-4o"
+    provider: "openai"
+  - id: "claude-3-5-sonnet-20240620"
+    name: "Claude 3.5 Sonnet"
+    provider: "anthropic"
+  - id: "gemini-1.5-pro"
+    name: "Gemini 1.5 Pro"
+    provider: "google"
+
+defaults:
+  t1_count: 200
+  t2_count: 200
+  t3_count: 100
+  temperature: 0.1
+  max_tokens: 512
+
+paths:
+  data: "data"
+  positions: "data/positions/positions.jsonl"
+  tasks: "data/tasks"
+  results: "data/results"
+  logs: "data/logs"

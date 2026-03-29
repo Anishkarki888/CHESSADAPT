@@ -110,7 +110,17 @@ class BenchmarkRunner:
     @staticmethod
     def _task_id(task: dict) -> str:
         """Generate a deterministic ID for a task (FEN + rules + type)."""
-        rules = "+".join(sorted(task.get("rule_names", [])))
+        rule_names = task.get("rule_names", [])
+        # Extract from rule_delta if rule_names is empty (fallback for hf_loader flow)
+        if not rule_names and "rule_delta" in task:
+            rule_delta = task["rule_delta"]
+            perturbation = rule_delta.get("perturbation")
+            if perturbation:
+                rule_names = [perturbation]
+                if "stacked_perturbation" in rule_delta:
+                    rule_names.append(rule_delta["stacked_perturbation"])
+
+        rules = "+".join(sorted(rule_names))
         return f"{task['fen']}|{rules}|{task['task_type']}"
 
     # ── Evaluation ───────────────────────────────────────────────────────
@@ -194,14 +204,17 @@ class BenchmarkRunner:
 
     def _evaluate_single(self, task: dict) -> dict[str, Any]:
         """Evaluate a single task: prompt → LLM → parse → score."""
-        prompt = task.get("prompt", "")
+        prompt = task.get("prompt_template", task.get("prompt", ""))
         rule_names = task.get("rule_names", [])
         
-        # Extract rule name from rule_delta if rule_names is empty
+        # Robustly extract from rule_delta if rule_names missing at top level
         if not rule_names and "rule_delta" in task:
             rule_delta = task["rule_delta"]
-            if "perturbation" in rule_delta:
-                rule_names = [rule_delta["perturbation"]]
+            perturbation = rule_delta.get("perturbation")
+            if perturbation:
+                rule_names = [perturbation]
+                if "stacked_perturbation" in rule_delta:
+                    rule_names.append(rule_delta["stacked_perturbation"])
         
         if not prompt:
             prompt = PromptBuilder.build(

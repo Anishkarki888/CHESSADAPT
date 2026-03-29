@@ -216,7 +216,19 @@ class PromptBuilder:
         elif task_type == "T2":
             return _T2_TEMPLATE.format(
                 fen=fen,
-                rule=rule_desc,
+                board=board,
+                turn=turn,
+                rule_description=rule_desc,
+            )
+
+        elif task_type == "T3":
+            rule_descs = [f"- {_describe_rule(r)}" for r in rule_names]
+            rule_str = "\n".join(rule_descs)
+            return _T3_TEMPLATE.format(
+                fen=fen,
+                board=board,
+                turn=turn,
+                rule_descriptions=rule_str,
             )
 
         else:
