@@ -6,6 +6,5 @@ __pycache__/
 htmlcov/
 data/logs/
 data/tasks/
-data/results/
 .DS_Store
 .python-version

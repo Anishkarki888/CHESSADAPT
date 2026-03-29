@@ -1,0 +1,35 @@
+{
+  "experiment_id": "e2ebd14715564043",
+  "timestamp": 1774781304.9190664,
+  "task_type": "T1",
+  "fen": "r2q1rk1/1bp3b1/p2pp1n1/1p3pNQ/2nPP3/1BP3N1/PP3PPP/R3R1K1 w - - 0 18",
+  "rule_names": [
+    "bishop_as_rook"
+  ],
+  "model_moves": [
+    "0000"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "0000",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "Bd2c2",
+    "difficulty_tier": "medium"
+  }
+}

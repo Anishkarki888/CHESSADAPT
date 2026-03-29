@@ -203,25 +203,20 @@ class PromptBuilder:
         board = _board_ascii(fen)
         turn = _turn_label(fen)
 
-        if task_type == "T1":
+        if not rule_names:
+            rule_desc = "(No rule specified)"
+        else:
             rule_desc = _describe_rule(rule_names[0])
+
+        if task_type == "T1":
             return _T1_TEMPLATE.format(
                 fen=fen, board=board, turn=turn, rule_description=rule_desc,
             )
 
         elif task_type == "T2":
-            rule_desc = _describe_rule(rule_names[0])
             return _T2_TEMPLATE.format(
-                fen=fen, board=board, turn=turn, rule_description=rule_desc,
-            )
-
-        elif task_type == "T3":
-            descriptions = "\n".join(
-                f"{i+1}. **{name}**: {_describe_rule(name)}"
-                for i, name in enumerate(rule_names)
-            )
-            return _T3_TEMPLATE.format(
-                fen=fen, board=board, turn=turn, rule_descriptions=descriptions,
+                fen=fen,
+                rule=rule_desc,
             )
 
         else:

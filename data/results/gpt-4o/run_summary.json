@@ -1,0 +1,16 @@
+{
+  "model": "gpt-4o",
+  "model_config": {
+    "name": "GPT-4o",
+    "tier": "frontier",
+    "model_id": "gpt-4o"
+  },
+  "total_tasks": 4000,
+  "skipped": 0,
+  "failed": 4000,
+  "evaluated": 0,
+  "experiment_summary": {
+    "total_experiments": 0
+  },
+  "timestamp": 1774779615.4601142
+}

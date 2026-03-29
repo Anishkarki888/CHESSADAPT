@@ -195,9 +195,17 @@ class BenchmarkRunner:
     def _evaluate_single(self, task: dict) -> dict[str, Any]:
         """Evaluate a single task: prompt → LLM → parse → score."""
         prompt = task.get("prompt", "")
+        rule_names = task.get("rule_names", [])
+        
+        # Extract rule name from rule_delta if rule_names is empty
+        if not rule_names and "rule_delta" in task:
+            rule_delta = task["rule_delta"]
+            if "perturbation" in rule_delta:
+                rule_names = [rule_delta["perturbation"]]
+        
         if not prompt:
             prompt = PromptBuilder.build(
-                task["fen"], task["rule_names"], task["task_type"]
+                task["fen"], rule_names, task["task_type"]
             )
 
         # Call the LLM (or dry-run)
@@ -218,7 +226,7 @@ class BenchmarkRunner:
         # Score via ExperimentRunner
         exp_result = self._experiment_runner.run_single(
             fen=task["fen"],
-            rule_names=task["rule_names"],
+            rule_names=rule_names,
             model_moves=model_moves,
             task_type=task_type,
             metadata={
@@ -231,7 +239,7 @@ class BenchmarkRunner:
         return {
             "task_type": task_type,
             "fen": task["fen"],
-            "rule_names": task["rule_names"],
+            "rule_names": rule_names,
             "difficulty_tier": task.get("difficulty_tier", ""),
             "model_moves": model_moves,
             "raw_response": raw_response[:500],
