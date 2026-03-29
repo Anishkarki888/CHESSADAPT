@@ -16,7 +16,7 @@ PYTHON       := uv run python
 PYTEST       := uv run pytest
 
 POSITIONS    := data/positions/positions.jsonl
-TASKS        := data/tasks/tasks.jsonl
+TASKS        := data/tasks/t1_tasks.jsonl
 RESULTS_DIR  := data/results
 REPORT       := $(RESULTS_DIR)/report.md
 WRITEUP      := docs/writeup.md
@@ -75,20 +75,23 @@ test-coverage: ## Run tests with coverage report
 # ── Data Pipeline ────────────────────────────────────────────────────────────
 $(POSITIONS):
 	@mkdir -p data/positions
-	$(PYTHON) pipeline/hf_loader.py
+	$(PYTHON) -m pipeline.hf_loader_part2
 	@echo "✓ Positions extracted to $(POSITIONS)"
 
-data: $(POSITIONS) ## Generate positions.jsonl from Lichess dataset
+data: $(POSITIONS) ## Generate positions.jsonl using streaming extractor
 
 $(TASKS): $(POSITIONS)
-	$(PYTHON) -c "\
-from evaluation.task_generator import TaskGenerator; \
-gen = TaskGenerator('$(POSITIONS)'); \
-tasks = gen.generate_all($(T1_COUNT), $(T2_COUNT), $(T3_COUNT)); \
-gen.save(tasks, '$(TASKS)'); \
-print(f'✓ {len(tasks)} tasks saved to $(TASKS)')"
+	@mkdir -p data/tasks
+	$(PYTHON) -m pipeline.run_pipeline --positions $(POSITIONS) --tasks-dir data/tasks --sample 3
+	@echo "✓ Benchmark task items generated in data/tasks/"
 
-tasks: $(TASKS) ## Generate benchmark task items from positions
+tasks: $(TASKS) ## Generate T1/T2/T3 task files for Kaggle submission
+
+dataset: data tasks ## Run the full pipeline: download data → generate all task files
+
+zip-dataset: tasks ## Create a zip file of the generated task data for Kaggle
+	zip -j dataset.zip data/tasks/t1_tasks.jsonl data/tasks/t2_tasks.jsonl data/tasks/t3_tasks.jsonl
+	@echo "✓ Dataset zipped to dataset.zip"
 
 # ── Evaluation ───────────────────────────────────────────────────────────────
 evaluate: $(TASKS) ## Evaluate a single model (MODEL=gpt-4o)
