@@ -67,33 +67,52 @@ def load_positions(path: str) -> list[dict]:
     return positions
 
 
+# Descriptions for Variant A (Standard)
+DESCRIPTIONS = {
+    "bishop_as_rook":       ("piece_movement",  "Bishops move orthogonally only, not diagonally"),
+    "knight_two_squares":   ("piece_movement",  "Knights move exactly 2 squares in any direction, no L-shape"),
+    "queen_no_backwards":   ("piece_movement",  "Queen cannot move towards its own back rank"),
+    "pawn_forward_capture": ("piece_movement",  "Pawns capture straight forward, not diagonally"),
+    "capture_all_pawns":    ("win_condition",   "Capture all opponent pawns to win instead of checkmate"),
+    "centre_race":          ("win_condition",   "First player to move a piece to e4 or e5 wins"),
+    "two_moves_per_turn":   ("turn_structure",  "Each player makes two moves per turn"),
+    "no_repeat_piece":      ("turn_structure",  "You cannot move the same piece twice in a row"),
+}
+
+# Descriptions for Variant B (Geometric / Chinese Room)
+GEOMETRIC_DESCRIPTIONS = {
+    "bishop_as_rook":       "One piece type may only travel in straight lines — left, right, forward, or backward — any number of empty squares. It cannot travel diagonally under any circumstance.",
+    "knight_two_squares":   "One piece type may move exactly 2 squares in any direction — horizontally, vertically, or diagonally. No other distance or path is permitted.",
+    "queen_no_backwards":   "One piece type may not move in the direction of its own starting rank. It may only move laterally or away from its starting rank.",
+    "pawn_forward_capture": "One piece type captures by moving directly forward into the target square, not at an angle.",
+    "capture_all_pawns":    "Victory is achieved by removing all of the opponent's smallest pieces from the board.",
+    "centre_race":          "Victory is achieved by placing any piece on one of the two central squares of the board.",
+    "two_moves_per_turn":   "Each side executes two actions before control passes to the opponent.",
+    "no_repeat_piece":      "The piece moved on the current turn must differ from the piece moved on the immediately preceding turn.",
+}
+
+
 def build_rule_delta(perturbation: str, stacked: str | None = None) -> dict:
     """
     Build the rule_delta field describing the perturbation(s) applied.
     For T3, `stacked` is the second perturbation key.
     """
-    DESCRIPTIONS = {
-        "bishop_as_rook":       ("piece_movement",  "Bishops move orthogonally only, not diagonally"),
-        "knight_two_squares":   ("piece_movement",  "Knights move exactly 2 squares in any direction, no L-shape"),
-        "queen_no_backwards":   ("piece_movement",  "Queen cannot move towards its own back rank"),
-        "pawn_forward_capture": ("piece_movement",  "Pawns capture straight forward, not diagonally"),
-        "capture_all_pawns":    ("win_condition",   "Capture all opponent pawns to win instead of checkmate"),
-        "centre_race":          ("win_condition",   "First player to move a piece to e4 or e5 wins"),
-        "two_moves_per_turn":   ("turn_structure",  "Each player makes two moves per turn"),
-        "no_repeat_piece":      ("turn_structure",  "You cannot move the same piece twice in a row"),
-    }
-
     cat, desc = DESCRIPTIONS[perturbation]
+    geo_desc  = GEOMETRIC_DESCRIPTIONS[perturbation]
+
     delta = {
-        "type":        cat,
-        "perturbation": perturbation,
-        "description": desc,
+        "type":                  cat,
+        "perturbation":          perturbation,
+        "description":           desc,
+        "geometric_description": geo_desc,
     }
 
     if stacked:
         _, stacked_desc = DESCRIPTIONS[stacked]
-        delta["stacked_perturbation"] = stacked
-        delta["stacked_description"]  = stacked_desc
+        stacked_geo     = GEOMETRIC_DESCRIPTIONS[stacked]
+        delta["stacked_perturbation"]           = stacked
+        delta["stacked_description"]            = stacked_desc
+        delta["stacked_geometric_description"]  = stacked_geo
 
     return delta
 
