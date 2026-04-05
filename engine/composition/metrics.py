@@ -25,6 +25,20 @@ W_FLEXIBILITY = 0.20
 
 
 @dataclass
+class MetacognitionBreakdown:
+    """Container for self-awareness and calibration metrics."""
+
+    calibration_error: float
+    error_detection_accuracy: float
+    overconfidence_rate: float
+    underconfidence_rate: float
+    prospective_gap: float | None = None
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+@dataclass
 class ScoreBreakdown:
     """Typed container for a full composite score result."""
 
@@ -35,14 +49,44 @@ class ScoreBreakdown:
     total_moves: int
     legal_moves: int
     inhibition_failures: int
+    metacognition: MetacognitionBreakdown | None = None  # NEW
 
     def to_dict(self) -> dict:
-        return asdict(self)
+        d = asdict(self)
+        if self.metacognition:
+            d["metacognition"] = self.metacognition.to_dict()
+        return d
+
+
+# ── Metacognition metric functions ───────────────────────────────────────────
+
+def calibration_error(events: Sequence[MoveEvent]) -> float:
+    """Average |confidence/10 - correctness|."""
+    vals = []
+    for e in events:
+        conf = e.extra.get("confidence")
+        if conf is not None:
+            vals.append(abs((conf / 10.0) - float(e.is_legal_perturbed)))
+    return sum(vals) / len(vals) if vals else 0.0
+
+
+def error_detection_accuracy(events: Sequence[MoveEvent]) -> float:
+    """Fraction of times legal_prediction matched actual correctness."""
+    matches = 0
+    total = 0
+    for e in events:
+        pred = e.extra.get("legal_prediction")
+        if pred is not None:
+            total += 1
+            if pred == e.is_legal_perturbed:
+                matches += 1
+    return matches / total if total > 0 else 0.0
 
 
 # ── Individual metric functions ──────────────────────────────────────────────
 
 def compliance_rate(events: Sequence[MoveEvent]) -> float:
+# ... (rest of the file follows)
     """
     Fraction of model-generated moves that are legal under the perturbed
     ruleset.  Primary signal — directly measures whether the model
@@ -117,33 +161,66 @@ def composite_score(
 
 # ── Convenience: compute everything from a flat event list ───────────────────
 
+class MetacognitionCalculator:
+    """Calculates all calibration and self-awareness scores."""
+
+    @staticmethod
+    def compute(events: Sequence[MoveEvent]) -> MetacognitionBreakdown:
+        # Calibration Error
+        ce = calibration_error(events)
+        
+        # Error Detection
+        eda = error_detection_accuracy(events)
+
+        # Over/Under-confidence
+        over, under = 0, 0
+        total_conf = 0
+
+        for e in events:
+            conf = e.extra.get("confidence")
+            if conf is not None:
+                total_conf += 1
+                if conf >= 8 and not e.is_legal_perturbed:
+                    over += 1
+                if conf <= 3 and e.is_legal_perturbed:
+                    under += 1
+        
+        over_rate  = over / total_conf if total_conf > 0 else 0.0
+        under_rate = under / total_conf if total_conf > 0 else 0.0
+
+        # Prospective Gap (Hard T1 items only)
+        gaps = []
+        for e in events:
+            pre  = e.extra.get("pre_difficulty")
+            conf = e.extra.get("confidence")
+            if pre is not None and conf is not None:
+                gaps.append(abs(pre - (10 - conf)))
+        
+        avg_gap = sum(gaps) / len(gaps) if gaps else None
+
+        return MetacognitionBreakdown(
+            calibration_error        = round(ce, 4),
+            error_detection_accuracy = round(eda, 4),
+            overconfidence_rate      = round(over_rate, 4),
+            underconfidence_rate     = round(under_rate, 4),
+            prospective_gap          = round(avg_gap, 4) if avg_gap is not None else None
+        )
+
+
 class MetricsCalculator:
     """
     Stateless calculator that accepts event logs and returns a
     ``ScoreBreakdown``.
-
-    Usage::
-
-        calc = MetricsCalculator()
-        score = calc.compute(event_log)
-        print(score.composite_score)
     """
 
     @staticmethod
     def compute(
         events: Sequence[MoveEvent],
         events_by_category: dict[str, Sequence[MoveEvent]] | None = None,
+        include_metacognition: bool = False,
     ) -> ScoreBreakdown:
         """
-        Compute all three metrics and the composite score.
-
-        Parameters
-        ----------
-        events : list[MoveEvent]
-            Flat list of all evaluation events.
-        events_by_category : dict, optional
-            Events grouped by perturbation category.  If ``None``, events
-            are auto-grouped using ``MoveEvent.category``.
+        Compute all metrics and the composite score.
         """
         # auto-group if not provided
         if events_by_category is None:
@@ -157,12 +234,17 @@ class MetricsCalculator:
         f = flexibility_index(events_by_category)
         s = composite_score(c, i, f)
 
+        meta = None
+        if include_metacognition:
+            meta = MetacognitionCalculator.compute(events)
+
         return ScoreBreakdown(
-            compliance_rate=round(c, 4),
-            inhibition_score=round(i, 4),
-            flexibility_index=round(f, 4),
-            composite_score=round(s, 4),
-            total_moves=len(events),
-            legal_moves=sum(1 for e in events if e.is_legal_perturbed),
-            inhibition_failures=sum(1 for e in events if e.is_inhibition_failure),
+            compliance_rate     = round(c, 4),
+            inhibition_score    = round(i, 4),
+            flexibility_index   = round(f, 4),
+            composite_score     = round(s, 4),
+            total_moves         = len(events),
+            legal_moves         = sum(1 for e in events if e.is_legal_perturbed),
+            inhibition_failures = sum(1 for e in events if e.is_inhibition_failure),
+            metacognition       = meta
         )
