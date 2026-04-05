@@ -95,58 +95,42 @@ class ExperimentRunner:
         model_moves: list[str],
         task_type: str = "T1",
         metadata: dict[str, Any] | None = None,
+        meta_scoring: dict[str, Any] | None = None,
     ) -> ExperimentResult:
         """
         Evaluate a model's response against a single benchmark task.
-
-        Parameters
-        ----------
-        fen : str
-            FEN of the starting position.
-        rule_names : list[str]
-            Perturbation rule(s) to apply.
-        model_moves : list[str]
-            UCI move string(s) produced by the model.
-        task_type : str
-            One of "T1", "T2", "T3".
-        metadata : dict, optional
-            Extra metadata to attach (model name, prompt version, etc.).
         """
         experiment_id = uuid.uuid4().hex[:16]
         timestamp = time.time()
         meta = metadata or {}
+        meta_scoring = meta_scoring or {}
 
         composer = RuleComposer(fen, rule_names)
         per_move_results: list[dict[str, Any]] = []
 
         for i, uci in enumerate(model_moves):
             # Validate the move (records event internally)
-            result = composer.validate_move(uci)
+            # Pass meta_scoring into the first move's event
+            extra = meta_scoring if i == 0 else {}
+            result = composer.validate_move(uci, **extra)
             result["move_index"] = i
             per_move_results.append(result)
 
-            # For T3 sequences: if the move is legal, push it so the next
-            # move is evaluated on the updated board
+            # For T3 sequences: push legal moves
             if result["legal"] and task_type == "T3" and i < len(model_moves) - 1:
                 try:
                     composer.push(uci)
                 except ValueError:
-                    # Should not happen since we validated, but be safe
                     pass
 
         # Compute composite score from the event log
         events = composer.get_event_log()
-
-        # For scoring, we only want the validation events (not push events)
-        # In validate_move we record events; in push we also record.
-        # Deduplicate by keeping only validation events (where fen_after == fen_before
-        # unless it was a push).
-        # Actually, for T3 we push, which also records an event. We want to
-        # count each model move exactly once.  The validate_move call is the
-        # canonical one.  Filter to keep only the first N events where N = len(model_moves).
         scoring_events = events[:len(model_moves)]
 
-        score = self._calc.compute(scoring_events)
+        score = self._calc.compute(
+            scoring_events, 
+            include_metacognition=bool(meta_scoring)
+        )
 
         result_obj = ExperimentResult(
             experiment_id=experiment_id,
@@ -161,7 +145,6 @@ class ExperimentRunner:
         )
 
         self._results.append(result_obj)
-
         if self._save_to_disk:
             self._save_result(result_obj)
 
@@ -231,7 +214,8 @@ class ExperimentRunner:
             return {"total_experiments": 0}
 
         scores = [r.score for r in self._results]
-        return {
+        
+        agg = {
             "total_experiments": len(self._results),
             "avg_compliance": round(
                 sum(s.compliance_rate for s in scores) / len(scores), 4
@@ -250,8 +234,25 @@ class ExperimentRunner:
             "total_inhibition_failures": sum(
                 s.inhibition_failures for s in scores
             ),
-            "by_task_type": self._group_by_task_type(),
         }
+
+        # ── Metacognition aggregates ──
+        meta_scores = [s.metacognition for s in scores if s.metacognition]
+        if meta_scores:
+            n = len(meta_scores)
+            agg["metacognition"] = {
+                "avg_calibration_error": round(sum(m.calibration_error for m in meta_scores) / n, 4),
+                "avg_error_detection": round(sum(m.error_detection_accuracy for m in meta_scores) / n, 4),
+                "avg_overconfidence": round(sum(m.overconfidence_rate for m in meta_scores) / n, 4),
+                "avg_underconfidence": round(sum(m.underconfidence_rate for m in meta_scores) / n, 4),
+            }
+            # average prospective gap if available
+            gaps = [m.prospective_gap for m in meta_scores if m.prospective_gap is not None]
+            if gaps:
+                agg["metacognition"]["avg_prospective_gap"] = round(sum(gaps) / len(gaps), 4)
+
+        agg["by_task_type"] = self._group_by_task_type()
+        return agg
 
     def _group_by_task_type(self) -> dict[str, dict[str, Any]]:
         """Group results by task type and compute per-group averages."""

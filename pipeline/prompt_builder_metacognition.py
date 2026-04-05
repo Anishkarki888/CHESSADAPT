@@ -127,68 +127,47 @@ def build_metacognition_prompt(
     fen: str,
     rule_delta: dict,
     task_type: TaskType,
+    variant: str = "A",
     predict_first: bool = False,
 ) -> str:
     """
-    Build the metacognition prompt for a single task item.
-
-    Parameters
-    ----------
-    fen : str
-        Board position in FEN notation.
-    rule_delta : dict
-        Rule descriptor from the TaskItem. Must contain 'description'.
-        T3 items may also contain 'stacked_description'.
-    task_type : TaskType
-        One of 'T1', 'T2', or 'T3'.
-    predict_first : bool
-        When True (hard-tier T1 only), the model rates expected difficulty
-        before seeing the position. Measures prospective metacognition
-        as described in Fleming & Lau (2014).
-
-    Returns
-    -------
-    str
-        Fully formatted prompt ready to send to the model.
-
-    Notes
-    -----
-    Parse the response with parse_metacognition_response().
-    Score the parsed result with score_metacognition().
-    Extracted fields: move, confidence, legal_prediction, hardest_part,
-    pre_difficulty (predict_first mode only).
+    Build the metacognition prompt. Supports Variant A (Named) and B (Geometric).
     """
     side = _side_to_move(fen)
-    rule_description = rule_delta.get("description", "")
+    
+    if variant == "B":
+        rule_desc = rule_delta.get("geometric_description", "")
+        # For T3 B, we list the geometric rules
+        if task_type == "T3":
+            rules = [f"1. {rule_desc}"]
+            if "stacked_geometric_description" in rule_delta:
+                rules.append(f"2. {rule_delta['stacked_geometric_description']}")
+            rule_list = "\n".join(rules)
+        else:
+            rule_list = rule_desc # not used for T1/T2 but for consistency
+    else:
+        rule_desc = rule_delta.get("description", "")
+        if task_type == "T3":
+            rules = [f"1. {rule_desc}"]
+            if "stacked_description" in rule_delta:
+                rules.append(f"2. {rule_delta['stacked_description']}")
+            rule_list = "\n".join(rules)
 
     if task_type == "T3":
-        rules = [f"1. {rule_description}"]
-        if "stacked_description" in rule_delta:
-            rules.append(f"2. {rule_delta['stacked_description']}")
-        rule_list = "\n".join(rules)
         return _T3_TEMPLATE.format(fen=fen, side=side, rule_list=rule_list)
 
     if task_type == "T1" and predict_first:
         return _T1_PREDICT_FIRST_TEMPLATE.format(
-            fen=fen,
-            side=side,
-            rule_description=rule_description,
-            meta_format=_META_RESPONSE_FORMAT,
+            fen=fen, side=side, rule_description=rule_desc, meta_format=_META_RESPONSE_FORMAT
         )
 
     if task_type == "T1":
         return _T1_TEMPLATE.format(
-            fen=fen,
-            side=side,
-            rule_description=rule_description,
-            meta_format=_META_RESPONSE_FORMAT,
+            fen=fen, side=side, rule_description=rule_desc, meta_format=_META_RESPONSE_FORMAT
         )
 
     return _T2_TEMPLATE.format(
-        fen=fen,
-        side=side,
-        rule_description=rule_description,
-        meta_format=_META_RESPONSE_FORMAT,
+        fen=fen, side=side, rule_description=rule_desc, meta_format=_META_RESPONSE_FORMAT
     )
 
 
@@ -239,13 +218,14 @@ def parse_metacognition_response(response: str) -> dict:
 
     if "MOVE" in line_map:
         result["move"] = line_map["MOVE"].strip().lower()
-    else:
-        for line in lines:
-            clean = line.strip().lower()
-            if len(clean) in (4, 5) and clean[:2].isalpha() and clean[2:4].isdigit():
-                result["move"] = clean
-                break
-        if result["move"] is None:
+    
+    # Fallback: regex search for anything that looks like a UCI move (e.g., e2e4)
+    if result["move"] is None:
+        import re
+        match = re.search(r'\b([a-h][1-8][a-h][1-8][qrbn]?)\b', response.lower())
+        if match:
+            result["move"] = match.group(1)
+        else:
             result["parse_errors"].append("move")
 
     if "CONFIDENCE" in line_map:
@@ -253,12 +233,17 @@ def parse_metacognition_response(response: str) -> dict:
             conf = int(line_map["CONFIDENCE"])
             if 1 <= conf <= 10:
                 result["confidence"] = conf
-            else:
-                result["parse_errors"].append("confidence_out_of_range")
         except ValueError:
+            pass
+    
+    if result["confidence"] is None:
+        match = re.search(r'\bconfidence\b.*?\b(\d+)\b', response.lower(), re.DOTALL)
+        if match:
+            c = int(match.group(1))
+            if 1 <= c <= 10:
+                result["confidence"] = c
+        if result["confidence"] is None:
             result["parse_errors"].append("confidence")
-    else:
-        result["parse_errors"].append("confidence")
 
     if "LEGAL_PREDICTION" in line_map:
         val = line_map["LEGAL_PREDICTION"].upper()
@@ -266,10 +251,14 @@ def parse_metacognition_response(response: str) -> dict:
             result["legal_prediction"] = True
         elif val in ("NO", "N", "FALSE"):
             result["legal_prediction"] = False
+    
+    if result["legal_prediction"] is None:
+        if re.search(r'legal_prediction\b.*?\b(yes|true|y)\b', response.lower(), re.DOTALL):
+            result["legal_prediction"] = True
+        elif re.search(r'legal_prediction\b.*?\b(no|false|n)\b', response.lower(), re.DOTALL):
+            result["legal_prediction"] = False
         else:
-            result["parse_errors"].append("legal_prediction_ambiguous")
-    else:
-        result["parse_errors"].append("legal_prediction")
+            result["parse_errors"].append("legal_prediction")
 
     if "HARDEST_PART" in line_map:
         result["hardest_part"] = line_map["HARDEST_PART"]

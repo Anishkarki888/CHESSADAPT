@@ -233,6 +233,12 @@ class BenchmarkRunner:
         max_moves = 3 if task_type == "T3" else 1
         model_moves = self._parser.extract(raw_response, max_moves=max_moves)
 
+        # Metacognition extraction
+        meta_scoring = None
+        # Tasks from data/tasks_metacognition generally have "type": "metacognition" in rule_delta
+        if task.get("rule_delta", {}).get("type") == "metacognition":
+            meta_scoring = self._parser.extract_metacognition(raw_response)
+
         if not model_moves:
             model_moves = ["0000"]  # null move sentinel for scoring
 
@@ -242,6 +248,7 @@ class BenchmarkRunner:
             rule_names=rule_names,
             model_moves=model_moves,
             task_type=task_type,
+            meta_scoring=meta_scoring,
             metadata={
                 "model": self._model_key,
                 "raw_response": raw_response[:500],

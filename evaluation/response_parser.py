@@ -23,31 +23,12 @@ _UCI_PATTERN = re.compile(r"\b([a-h][1-8][a-h][1-8][qrbnQRBN]?)\b", re.IGNORECAS
 class ResponseParser:
     """
     Extract UCI move strings from raw LLM output.
-
-    Usage::
-
-        parser = ResponseParser()
-        moves = parser.extract("My best move is e2e4.")
-        # moves = ["e2e4"]
     """
 
     @staticmethod
     def extract(raw_response: str, max_moves: int = 3) -> list[str]:
         """
         Extract up to ``max_moves`` UCI move strings from raw text.
-
-        Parameters
-        ----------
-        raw_response : str
-            Raw text output from the LLM.
-        max_moves : int
-            Maximum number of moves to extract.
-
-        Returns
-        -------
-        list[str]
-            Extracted UCI moves in order of appearance, lowercased.
-            Empty list if no valid moves found.
         """
         if not raw_response or not raw_response.strip():
             logger.warning("Empty response received")
@@ -87,3 +68,11 @@ class ResponseParser:
         """
         moves = ResponseParser.extract(raw_response, max_moves=1)
         return moves[0] if moves else None
+
+    @staticmethod
+    def extract_metacognition(raw_response: str) -> dict:
+        """
+        Extract metacognition fields (confidence, etc.) from the response.
+        """
+        from pipeline.prompt_builder_metacognition import parse_metacognition_response
+        return parse_metacognition_response(raw_response)

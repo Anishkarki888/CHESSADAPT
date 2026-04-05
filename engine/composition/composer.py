@@ -204,17 +204,9 @@ class RuleComposer(LoggingMixin, StateTrackingMixin):
 
     # ── Move validation ──────────────────────────────────────────────────
 
-    def validate_move(self, uci: str) -> dict:
+    def validate_move(self, uci: str, **extra: Any) -> dict:
         """
         Check a single move against the composed ruleset AND standard chess.
-
-        Returns a dict compatible with ``engine.validator.validate_move``:
-          {
-              "legal": bool,
-              "is_old_rule": bool,
-              "uci_move": str,
-              "is_inhibition_failure": bool,
-          }
         """
         t0 = time.perf_counter()
 
@@ -239,6 +231,7 @@ class RuleComposer(LoggingMixin, StateTrackingMixin):
             is_legal_perturbed=legal_composed,
             is_legal_standard=legal_standard,
             elapsed_ms=elapsed_ms,
+            **extra,
         )
 
         # Log
@@ -258,13 +251,9 @@ class RuleComposer(LoggingMixin, StateTrackingMixin):
             "is_inhibition_failure": is_inhibition_failure,
         }
 
-    # ── Push / Pop (for sequence evaluation in T3) ───────────────────────
-
-    def push(self, uci: str) -> dict:
+    def push(self, uci: str, **extra: Any) -> dict:
         """
-        Apply a move to ALL internal boards.  Returns the validation
-        result.  Raises ValueError if the move is illegal under the
-        composed ruleset.
+        Apply a move to ALL internal boards.
         """
         t0 = time.perf_counter()
         move = chess.Move.from_uci(uci)
@@ -286,6 +275,7 @@ class RuleComposer(LoggingMixin, StateTrackingMixin):
                 is_legal_perturbed=False,
                 is_legal_standard=is_legal_standard,
                 elapsed_ms=elapsed_ms,
+                **extra,
             )
             self._log_move(
                 logging.ERROR, uci, fen_before, False, "REJECTED"
@@ -310,6 +300,7 @@ class RuleComposer(LoggingMixin, StateTrackingMixin):
             is_legal_perturbed=True,
             is_legal_standard=is_legal_standard,
             elapsed_ms=elapsed_ms,
+            **extra,
         )
         self._log_move(logging.INFO, uci, fen_before, True, "PUSHED")
 

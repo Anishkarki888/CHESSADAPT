@@ -61,26 +61,36 @@ class ScoreBreakdown:
 # ── Metacognition metric functions ───────────────────────────────────────────
 
 def calibration_error(events: Sequence[MoveEvent]) -> float:
-    """Average |confidence/10 - correctness|."""
-    vals = []
-    for e in events:
-        conf = e.extra.get("confidence")
-        if conf is not None:
-            vals.append(abs((conf / 10.0) - float(e.is_legal_perturbed)))
-    return sum(vals) / len(vals) if vals else 0.0
+    """
+    Average |confidence/10 - correctness|.
+    For T3 (multiple events), correctness = ALL moves were legal.
+    """
+    # Identify the first event which contains the metacognition 'extra' data
+    if not events:
+        return 0.0
+    
+    first_evt = events[0]
+    conf = first_evt.extra.get("confidence")
+    if conf is None:
+        return 0.0
+    
+    # Correctness: were ALL moves in this specific evaluation sequence legal?
+    is_correct = all(e.is_legal_perturbed for e in events)
+    return abs((conf / 10.0) - float(is_correct))
 
 
 def error_detection_accuracy(events: Sequence[MoveEvent]) -> float:
     """Fraction of times legal_prediction matched actual correctness."""
-    matches = 0
-    total = 0
-    for e in events:
-        pred = e.extra.get("legal_prediction")
-        if pred is not None:
-            total += 1
-            if pred == e.is_legal_perturbed:
-                matches += 1
-    return matches / total if total > 0 else 0.0
+    if not events:
+        return 0.0
+    
+    first_evt = events[0]
+    pred = first_evt.extra.get("legal_prediction")
+    if pred is None:
+        return 0.0
+        
+    is_correct = all(e.is_legal_perturbed for e in events)
+    return 1.0 if (pred == is_correct) else 0.0
 
 
 # ── Individual metric functions ──────────────────────────────────────────────
