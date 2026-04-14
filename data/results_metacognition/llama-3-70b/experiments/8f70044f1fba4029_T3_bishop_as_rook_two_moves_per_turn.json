@@ -1,0 +1,59 @@
+{
+  "experiment_id": "8f70044f1fba4029",
+  "timestamp": 1776189392.5347261,
+  "task_type": "T3",
+  "fen": "r1b1k2r/1p3pp1/p1n1p2p/3q4/5n2/B4N2/P1P2PPP/R1Q2RK1 b kq - 3 16",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "d7d5",
+    "d5d4",
+    "b7b5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d5d4",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b7b5",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd7d5\nd5d4\nb7b5\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was adjusting to the bishop's orthogonal movement, as it's a fundamental change to its typical behavior, and I had to retrain my thinking to consider only horizontal and vertical movements.",
+    "difficulty_tier": "hard"
+  }
+}

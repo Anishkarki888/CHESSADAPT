@@ -1,0 +1,53 @@
+{
+  "experiment_id": "15325eaf24334c07",
+  "timestamp": 1776184892.4039068,
+  "task_type": "T3",
+  "fen": "8/6k1/p2Np1p1/1pp1N2p/5K2/P2n4/1Pb2PPP/8 w - - 1 32",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "f4g5",
+    "d6e8",
+    "e5g6"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f4g5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d6e8",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e5g6",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "f4g5  \nd6e8  \ne5g6",
+    "difficulty_tier": "hard"
+  }
+}

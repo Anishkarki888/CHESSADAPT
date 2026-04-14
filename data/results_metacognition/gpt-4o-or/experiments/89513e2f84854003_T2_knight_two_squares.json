@@ -1,0 +1,42 @@
+{
+  "experiment_id": "89513e2f84854003",
+  "timestamp": 1776187151.0218287,
+  "task_type": "T2",
+  "fen": "r4rk1/p5pp/3b4/3P2B1/8/5BPb/PP3P1P/R2R2K1 b - - 0 23",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "f8f3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f8f3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: f8f3  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Understanding the exact movement pattern for knights was challenging due to the deviation from traditional L-shape moves.",
+    "difficulty_tier": "easy"
+  }
+}

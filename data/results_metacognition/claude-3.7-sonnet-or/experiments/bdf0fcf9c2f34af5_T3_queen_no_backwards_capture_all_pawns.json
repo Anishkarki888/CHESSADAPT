@@ -1,0 +1,59 @@
+{
+  "experiment_id": "bdf0fcf9c2f34af5",
+  "timestamp": 1776188605.4120417,
+  "task_type": "T3",
+  "fen": "3q1rk1/4b1pp/4p3/2P3n1/1rNP1p2/5N2/5PPP/R1Q2RK1 w - - 2 27",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "c1c3",
+    "c3c7",
+    "c7e7"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c1c3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c3c7",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c7e7",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\nc1c3\nc3c7\nc7e7\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The queen movement restriction was the hardest to apply because I had to carefully track which directions would constitute moving toward White's back rank (rank 1).",
+    "difficulty_tier": "hard"
+  }
+}

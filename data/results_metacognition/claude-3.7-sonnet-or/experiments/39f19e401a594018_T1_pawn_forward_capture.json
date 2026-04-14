@@ -1,0 +1,42 @@
+{
+  "experiment_id": "39f19e401a594018",
+  "timestamp": 1776187782.5121512,
+  "task_type": "T1",
+  "fen": "8/8/p4N1p/1p4p1/1PpK2P1/P5k1/2P5/8 w - - 0 35",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "f6g8"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f6g8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: f6g8\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The modified rule about pawns capturing straight forward doesn't affect knight moves, so there was no difficulty applying the rule in this position.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "9d5469f0c2fe4675",
+  "timestamp": 1776190359.4571435,
+  "task_type": "T3",
+  "fen": "2Qq1rk1/pp2ppbp/3p2p1/5b2/3n2P1/PP3N1P/1BPN1P2/R3K2R b KQ - 0 16",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "e8g8",
+    "d7d5",
+    "g8e8"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e8g8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g8e8",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "e8g8\nd7d5\ng8e8\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring the knight's move adhered to the modified rule of moving exactly 2 squares in any direction, as it is not the standard L-shape move.",
+    "difficulty_tier": "hard"
+  }
+}

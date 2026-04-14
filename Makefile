@@ -16,22 +16,29 @@ PYTHON       := uv run python
 PYTEST       := uv run pytest
 
 POSITIONS    := data/positions/positions.jsonl
-TASKS        := data/tasks/t1_tasks.jsonl
+T1_TASKS     := data/tasks/t1_tasks.jsonl
+T2_TASKS     := data/tasks/t2_tasks.jsonl
+T3_TASKS     := data/tasks/t3_tasks.jsonl
+TASKS        := $(T1_TASKS) $(T2_TASKS) $(T3_TASKS)
+
+T1_META_TASKS := data/tasks_metacognition/t1_tasks.jsonl
+T2_META_TASKS := data/tasks_metacognition/t2_tasks.jsonl
+T3_META_TASKS := data/tasks_metacognition/t3_tasks.jsonl
+TASKS_META    := $(T1_META_TASKS) $(T2_META_TASKS) $(T3_META_TASKS)
+
 RESULTS_DIR  := data/results
+RESULTS_META_DIR := data/results_metacognition
 REPORT       := $(RESULTS_DIR)/report.md
+REPORT_META  := $(RESULTS_META_DIR)/report_metacognition.md
 WRITEUP      := docs/writeup.md
 
 # Default model for single-model evaluation
 MODEL        ?= gpt-4o
 
-# Task counts
-T1_COUNT     ?= 200
-T2_COUNT     ?= 200
-T3_COUNT     ?= 100
-
 # ── Phony targets ────────────────────────────────────────────────────────────
-.PHONY: help install test lint data tasks evaluate evaluate-all analyze \
-        report clean clean-results clean-tasks clean-all dry-run \
+.PHONY: help install test lint data tasks tasks-metacognition evaluate evaluate-all \
+        evaluate-hackathon evaluate-metacognition analyze analyze-metacognition \
+        report report-metacognition clean clean-results clean-tasks clean-all dry-run \
         test-smoke test-eval test-engine test-coverage
 
 # ── Help ─────────────────────────────────────────────────────────────────────
@@ -87,20 +94,62 @@ $(TASKS): $(POSITIONS)
 
 tasks: $(TASKS) ## Generate T1/T2/T3 task files for Kaggle submission
 
+tasks-metacognition: $(POSITIONS) ## Generate tasks with metacognition probes
+	@mkdir -p data/tasks_metacognition
+	$(PYTHON) -m pipeline.run_pipeline --positions $(POSITIONS) --tasks-dir data/tasks_metacognition --sample 3 --metacognition
+	@echo "✓ Metacognition task items generated in data/tasks_metacognition/"
+
 dataset: data tasks ## Run the full pipeline: download data → generate all task files
 
 zip-dataset: tasks ## Create a zip file of the generated task data for Kaggle
-	zip -j dataset.zip data/tasks/t1_tasks.jsonl data/tasks/t2_tasks.jsonl data/tasks/t3_tasks.jsonl
+	zip -j dataset.zip $(TASKS)
 	@echo "✓ Dataset zipped to dataset.zip"
 
 # ── Evaluation ───────────────────────────────────────────────────────────────
 evaluate: $(TASKS) ## Evaluate a single model (MODEL=gpt-4o)
-	$(PYTHON) -m evaluation.runner --model $(MODEL) --tasks $(TASKS)
+	@for task_file in $(TASKS); do \
+		echo "Evaluating $(MODEL) on $$task_file..."; \
+		$(PYTHON) -m evaluation.runner --model $(MODEL) --tasks $$task_file \
+			$(if $(max-tasks),--max-tasks $(max-tasks)); \
+	done
 	@echo "✓ Evaluation complete for $(MODEL)"
 
 evaluate-all: $(TASKS) ## Evaluate all configured models
-	$(PYTHON) -m evaluation.runner --all-models --tasks $(TASKS)
+	@for task_file in $(TASKS); do \
+		echo "Evaluating all models on $$task_file..."; \
+		$(PYTHON) -m evaluation.runner --all-models --tasks $$task_file \
+			$(if $(max-tasks),--max-tasks $(max-tasks)); \
+	done
 	@echo "✓ All model evaluations complete"
+
+evaluate-hackathon: $(TASKS) ## Evaluate the 5 core hackathon models using OpenRouter
+	@for model in gpt-4o-or claude-3.7-sonnet-or llama-3-70b mistral-large qwen-2.5-72b; do \
+		for task_file in $(TASKS); do \
+			echo "Evaluating $$model on $$task_file..."; \
+			$(PYTHON) -m evaluation.runner --model $$model --tasks $$task_file \
+				$(if $(max-tasks),--max-tasks $(max-tasks)); \
+		done; \
+	done
+	@echo "✓ Hackathon model evaluations complete"
+
+evaluate-metacognition: $(TASKS_META) ## Run evaluation for the Metacognition track
+	@for model in gpt-4o-or claude-3.7-sonnet-or llama-3-70b mistral-large qwen-2.5-72b; do \
+		for task_file in $(TASKS_META); do \
+			echo "Evaluating $$model on $$task_file (Metacognition)..."; \
+			$(PYTHON) -m evaluation.runner --model $$model --tasks $$task_file \
+				--results-dir $(RESULTS_META_DIR) \
+				$(if $(max-tasks),--max-tasks $(max-tasks)); \
+		done; \
+	done
+	@echo "✓ Metacognition evaluations complete"
+
+evaluate-qwen: $(T1_TASKS) $(T2_TASKS) $(T3_TASKS) ## Evaluate Qwen 2.5 72B specifically
+	@for task_file in $(TASKS); do \
+		echo "Evaluating qwen-2.5-72b on $$task_file..."; \
+		$(PYTHON) -m evaluation.runner --model qwen-2.5-72b --tasks $$task_file \
+			$(if $(max-tasks),--max-tasks $(max-tasks)); \
+	done
+	@echo "✓ Qwen evaluation complete"
 
 dry-run: $(TASKS) ## Dry run (no API calls) to test pipeline
 	$(PYTHON) -m evaluation.runner --model $(MODEL) --tasks $(TASKS) \
@@ -108,17 +157,24 @@ dry-run: $(TASKS) ## Dry run (no API calls) to test pipeline
 	@echo "✓ Dry run complete"
 
 # ── Analysis & Reporting ─────────────────────────────────────────────────────
-$(REPORT):
-	$(PYTHON) -c "\
+analyze: ## Generate results analysis report
+	@$(PYTHON) -c "\
 from evaluation.analysis import ResultsAnalyzer; \
 analyzer = ResultsAnalyzer('$(RESULTS_DIR)'); \
 path = analyzer.save_report('$(REPORT)'); \
 print(f'✓ Report saved to {path}')"
-
-analyze: $(REPORT) ## Generate results analysis report
 	@cat $(REPORT)
 
+analyze-metacognition: ## Generate metacognition results report
+	@$(PYTHON) -c "\
+from evaluation.analysis import ResultsAnalyzer; \
+analyzer = ResultsAnalyzer('$(RESULTS_META_DIR)'); \
+path = analyzer.save_report('$(REPORT_META)'); \
+print(f'✓ Metacognition Report saved to {path}')"
+	@cat $(REPORT_META)
+
 report: analyze ## Alias for analyze
+report-metacognition: analyze-metacognition ## Alias for analyze-metacognition
 
 # ── Cleanup ──────────────────────────────────────────────────────────────────
 clean-results: ## Remove evaluation results

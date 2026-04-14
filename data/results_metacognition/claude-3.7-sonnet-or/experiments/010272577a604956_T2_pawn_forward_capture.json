@@ -1,0 +1,42 @@
+{
+  "experiment_id": "010272577a604956",
+  "timestamp": 1776188183.432441,
+  "task_type": "T2",
+  "fen": "Q6r/3kpp2/3p1qpp/2b5/2pN4/4P2P/5PPB/5K1R w - - 2 27",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "a8d8"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "a8d8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: a8d8\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The modified rule about pawns capturing straight forward doesn't affect this move since I'm moving the queen to capture the king.",
+    "difficulty_tier": "easy"
+  }
+}

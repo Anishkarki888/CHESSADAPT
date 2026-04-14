@@ -1,0 +1,42 @@
+{
+  "experiment_id": "86f8f286e3e84f38",
+  "timestamp": 1776189013.8843281,
+  "task_type": "T2",
+  "fen": "r4rk1/1bp1q1p1/p1n1p2p/1p2Pp2/8/2PB4/PP2QPPP/R1BR2K1 w - - 3 16",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "d4d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d4d5\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the pawn capture on d5 is indeed a straight forward capture, not diagonal.",
+    "difficulty_tier": "easy"
+  }
+}

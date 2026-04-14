@@ -1,0 +1,59 @@
+{
+  "experiment_id": "7ff3162299594ee5",
+  "timestamp": 1776187299.7035143,
+  "task_type": "T3",
+  "fen": "2k4r/p1p2p2/1p4p1/8/6K1/NQ4R1/PP4P1/5q2 b - - 0 30",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "f1f4",
+    "g4g5",
+    "f4f1"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f1f4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g4g5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f4f1",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "```\nf1f4\ng4g5\nf4f1\n```\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring the knight's movement adhered to the modified rule of moving exactly 2 squares in any direction.",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "48d2af588cee4f11",
+  "timestamp": 1776190261.0265841,
+  "task_type": "T3",
+  "fen": "r3k2r/3bqppp/p1n1p3/1p6/3PN3/bP5P/1B3PP1/1BRQ1R1K w kq - 0 19",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "e1g1",
+    "g1f1",
+    "f1e1"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e1g1",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g1f1",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f1e1",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.3333,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.6667,
+    "total_moves": 3,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVES (one per line):\ne1g1\ng1f1\nf1e1\n\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring the bishop moved orthogonally, as it is not its usual movement, but in this sequence, the bishops do not move, so the rule was not directly applied.",
+    "difficulty_tier": "hard"
+  }
+}

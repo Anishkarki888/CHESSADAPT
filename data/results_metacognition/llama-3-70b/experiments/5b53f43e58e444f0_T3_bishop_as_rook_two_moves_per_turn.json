@@ -1,0 +1,59 @@
+{
+  "experiment_id": "5b53f43e58e444f0",
+  "timestamp": 1776189680.3562145,
+  "task_type": "T3",
+  "fen": "4rrk1/3qp3/2ppNb2/pp3p1p/3P1BpP/P1P5/1PQ1RP2/R5K1 b - - 3 26",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "d7d5",
+    "b7b5",
+    "c6c5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b7b5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c6c5",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.3333,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.6667,
+    "total_moves": 3,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd7d5\nb7b5\nc6c5\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Applying the modified bishop movement rule to ensure that the bishop on c6 doesn't move diagonally in the third move, which required careful consideration of the board geometry.",
+    "difficulty_tier": "hard"
+  }
+}

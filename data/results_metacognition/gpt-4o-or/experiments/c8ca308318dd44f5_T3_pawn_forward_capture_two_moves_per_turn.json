@@ -1,0 +1,59 @@
+{
+  "experiment_id": "c8ca308318dd44f5",
+  "timestamp": 1776187404.9479833,
+  "task_type": "T3",
+  "fen": "r1b1k2r/pp4bp/nqn3p1/2ppPPN1/8/2P1B3/PP3Q1P/RN3RK1 b - - 0 16",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "c5d4",
+    "g7e5",
+    "d4e3"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c5d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "g7e5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4e3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nc5d4\ng7e5\nd4e3\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the pawn captures were made straight forward, as this is a significant deviation from standard chess rules.",
+    "difficulty_tier": "hard"
+  }
+}

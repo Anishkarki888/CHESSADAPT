@@ -1,0 +1,42 @@
+{
+  "experiment_id": "937bf0a6885f43ed",
+  "timestamp": 1776188126.2960827,
+  "task_type": "T2",
+  "fen": "rn4k1/pp2Pr2/3q3p/6p1/2B1P3/2N2P2/P1P3PP/R1Q1K2R w KQ - 1 23",
+  "rule_names": [
+    "centre_race"
+  ],
+  "model_moves": [
+    "e4e5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "e4e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: e4e5\nCONFIDENCE: 10\nLEGAL_PREDICTION: NO\nHARDEST_PART: Understanding that e4 is already occupied by a white pawn, so I cannot move a piece to e4 as white, and I cannot move to e5 from e4 since a pawn can only move forward one square after its initial move.",
+    "difficulty_tier": "easy"
+  }
+}

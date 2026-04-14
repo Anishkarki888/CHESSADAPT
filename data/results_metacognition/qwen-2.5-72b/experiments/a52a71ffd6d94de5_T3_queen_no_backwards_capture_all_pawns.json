@@ -1,0 +1,59 @@
+{
+  "experiment_id": "a52a71ffd6d94de5",
+  "timestamp": 1776190214.197255,
+  "task_type": "T3",
+  "fen": "r2b1rk1/pp3ppp/2p1b3/3nn1B1/3N4/2N2P2/PPP1B1PP/2KRR3 w - - 7 16",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "e1g1",
+    "d4e5",
+    "g1f1"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "e1g1",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4e5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g1f1",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "e1g1\nd4e5\ng1f1\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring the queen's move in the second move (d4e5) did not violate the rule of moving towards its own back rank.",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "experiment_id": "4bf541b644654241",
+  "timestamp": 1776189400.5059493,
+  "task_type": "T3",
+  "fen": "r1b1k2r/1p3pp1/p1n1p2p/3q4/5n2/B4N2/P1P2PPP/R1Q2RK1 b kq - 3 16",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "0000"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "0000",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd5\nNc4\nb5\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Applying the modified rule that the queen cannot move towards its own back rank was the hardest part, as it limited the queen's mobility and required careful consideration of its movements.",
+    "difficulty_tier": "hard"
+  }
+}

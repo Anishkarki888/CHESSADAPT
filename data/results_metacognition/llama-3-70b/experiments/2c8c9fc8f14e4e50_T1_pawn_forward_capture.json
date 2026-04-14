@@ -1,0 +1,42 @@
+{
+  "experiment_id": "2c8c9fc8f14e4e50",
+  "timestamp": 1776188796.0040996,
+  "task_type": "T1",
+  "fen": "rn1qkb1r/3n1p1p/p3p1pB/1p2P3/8/2N2P2/PPQ2P1P/1BRR2K1 w kq - 1 18",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "d4d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d4d5\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the pawn capture is straight forward and not diagonal, as it's a non-intuitive change to the standard pawn capture rules.",
+    "difficulty_tier": "easy"
+  }
+}

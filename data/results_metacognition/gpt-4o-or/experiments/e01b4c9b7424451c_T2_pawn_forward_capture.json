@@ -1,0 +1,42 @@
+{
+  "experiment_id": "e01b4c9b7424451c",
+  "timestamp": 1776187165.8692992,
+  "task_type": "T2",
+  "fen": "r4rk1/1bp1q1p1/p1n1p2p/1p2Pp2/8/2PB4/PP2QPPP/R1BR2K1 w - - 3 16",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "d3f5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d3f5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: d3f5  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: The hardest part was ensuring that pawn captures were not considered when evaluating potential moves.",
+    "difficulty_tier": "easy"
+  }
+}

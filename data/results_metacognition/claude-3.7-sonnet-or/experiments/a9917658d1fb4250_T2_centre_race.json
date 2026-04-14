@@ -1,0 +1,42 @@
+{
+  "experiment_id": "a9917658d1fb4250",
+  "timestamp": 1776188006.6028,
+  "task_type": "T2",
+  "fen": "rn1qkb1r/3n1p1p/p3p1pB/1p2P3/8/2N2P2/PPQ2P1P/1BRR2K1 w kq - 1 18",
+  "rule_names": [
+    "centre_race"
+  ],
+  "model_moves": [
+    "c2e4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c2e4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: c2e4\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The rule was straightforward to apply since I just needed to find a legal move that places a piece on e4 to win.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "7a5834df7a8e4378",
+  "timestamp": 1776189540.1457489,
+  "task_type": "T3",
+  "fen": "rnr3k1/ppp1b1pp/4Nn2/3Np3/1PP5/P5P1/1B1P1P1P/3R1K2 b - - 3 17",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d7d5",
+    "b6c5",
+    "c5b4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b6c5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c5b4",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd7d5\nb6c5\nc5b4\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that I didn't move the same piece twice in a row, as it required careful planning and attention to the previous moves.",
+    "difficulty_tier": "hard"
+  }
+}

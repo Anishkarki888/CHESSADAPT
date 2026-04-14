@@ -1,0 +1,42 @@
+{
+  "experiment_id": "1ea111d37ac3438f",
+  "timestamp": 1776190072.4459915,
+  "task_type": "T2",
+  "fen": "rbb1k2r/2q2p1p/n1p1pp2/p7/2PP2P1/P3BN2/1P1QB2P/2KR3R w kq - 1 20",
+  "rule_names": [
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "e1g1"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e1g1",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: e1g1\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the move does not violate the rule of moving the same piece twice in a row, especially when considering the king's movement in castling.",
+    "difficulty_tier": "easy"
+  }
+}

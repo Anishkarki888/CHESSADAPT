@@ -1,0 +1,42 @@
+{
+  "experiment_id": "d117042b124f458c",
+  "timestamp": 1776188689.793227,
+  "task_type": "T1",
+  "fen": "r4rk1/1bp1q1p1/p1n1p2p/1p2Pp2/8/2PB4/PP2QPPP/R1BR2K1 w - - 3 16",
+  "rule_names": [
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "0000"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "0000",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d5\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Identifying the most vulnerable pawn to capture while considering the potential responses from Black.",
+    "difficulty_tier": "easy"
+  }
+}

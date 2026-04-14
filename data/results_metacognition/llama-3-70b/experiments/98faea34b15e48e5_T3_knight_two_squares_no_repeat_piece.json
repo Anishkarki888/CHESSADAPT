@@ -1,0 +1,59 @@
+{
+  "experiment_id": "98faea34b15e48e5",
+  "timestamp": 1776189518.332902,
+  "task_type": "T3",
+  "fen": "r1b2r1k/bp2q2p/2p1P3/p2p1p2/P4Np1/1Q2P3/1PN2PPP/R4RK1 b - - 0 23",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d7d5",
+    "b7b5",
+    "d5c4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "b7b5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d5c4",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd7d5\nb7b5\nd5c4\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was applying the rule that knights move exactly 2 squares in any direction, as it required careful consideration of the knight's possible moves and their impact on the overall position.",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "c87b2f1bc666474d",
+  "timestamp": 1776187549.3509514,
+  "task_type": "T1",
+  "fen": "r5k1/4pp1p/1n4p1/r6n/4P3/1PN2P2/PP1R2PP/1K1R4 w - - 3 23",
+  "rule_names": [
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "d2d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d2d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: d2d5\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was determining the best move that progresses toward capturing all opponent pawns while maintaining a strong position.",
+    "difficulty_tier": "easy"
+  }
+}

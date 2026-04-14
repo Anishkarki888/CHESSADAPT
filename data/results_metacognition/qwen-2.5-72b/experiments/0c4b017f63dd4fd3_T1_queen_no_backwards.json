@@ -1,0 +1,42 @@
+{
+  "experiment_id": "0c4b017f63dd4fd3",
+  "timestamp": 1776189792.0530393,
+  "task_type": "T1",
+  "fen": "3q1rk1/p1Q1ppb1/7p/6p1/2bP4/2P2NB1/P4PPP/2R1R1K1 b - - 0 21",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "d7d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: d7d5\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring the queen does not move towards its own back rank, as it requires careful consideration of the direction of movement.",
+    "difficulty_tier": "easy"
+  }
+}

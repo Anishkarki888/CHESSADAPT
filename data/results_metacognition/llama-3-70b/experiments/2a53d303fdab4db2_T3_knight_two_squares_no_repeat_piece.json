@@ -1,0 +1,51 @@
+{
+  "experiment_id": "2a53d303fdab4db2",
+  "timestamp": 1776189424.9426703,
+  "task_type": "T3",
+  "fen": "r3k2r/3bqppp/p1n1p3/1p6/3PN3/bP5P/1B3PP1/1BRQ1R1K w kq - 0 19",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d2d4",
+    "b5c6"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d2d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b5c6",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 2,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd2d4\nNc3b5\nb5c6\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was applying the rule that you cannot move the same piece twice in a row, as it limited my options and forced me to think ahead to ensure I wasn't repeating a piece's move.",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "98809bb72b874e96",
+  "timestamp": 1776188544.7252254,
+  "task_type": "T3",
+  "fen": "8/6k1/p2Np1p1/1pp1N2p/5K2/P2n4/1Pb2PPP/8 w - - 1 32",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "e5f7",
+    "f7h6",
+    "h6a6"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e5f7",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f7h6",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "h6a6",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\ne5f7\nf7h6\nh6a6\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The queen movement restriction was hardest to apply because I had to carefully check that none of the knight moves violated this rule, but since there is no queen on the board, this rule doesn't actually affect the given position.",
+    "difficulty_tier": "hard"
+  }
+}

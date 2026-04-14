@@ -1,0 +1,42 @@
+{
+  "experiment_id": "9d083dacd61d475f",
+  "timestamp": 1776188028.7819724,
+  "task_type": "T2",
+  "fen": "r1q2rk1/pb1nbppp/1p2p3/2p1P3/2P5/1P3NP1/PBQ2PBP/R3R1K1 b - - 2 16",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "c8d8"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c8d8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: c8d8\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Determining which directions count as \"towards its own back rank\" for the black queen, which I interpreted as moving toward the 8th rank.",
+    "difficulty_tier": "easy"
+  }
+}

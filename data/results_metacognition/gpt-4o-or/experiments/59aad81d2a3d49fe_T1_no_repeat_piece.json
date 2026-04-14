@@ -1,0 +1,42 @@
+{
+  "experiment_id": "59aad81d2a3d49fe",
+  "timestamp": 1776187051.9013612,
+  "task_type": "T1",
+  "fen": "r2b2k1/pp3rpp/q2p1p2/3RnP2/2P1PB2/1P4Q1/P5PP/R6K b - - 0 22",
+  "rule_names": [
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "a6a3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "a6a3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: a6a3  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Ensuring that the piece moved was not the same as the last move was challenging without knowing the previous move.",
+    "difficulty_tier": "easy"
+  }
+}

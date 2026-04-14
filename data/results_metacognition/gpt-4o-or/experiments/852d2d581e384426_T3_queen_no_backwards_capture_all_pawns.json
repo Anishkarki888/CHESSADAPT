@@ -1,0 +1,59 @@
+{
+  "experiment_id": "852d2d581e384426",
+  "timestamp": 1776187367.6960626,
+  "task_type": "T3",
+  "fen": "r1b1rk2/ppNn1pb1/6pp/8/2P1PB2/5n2/PP4PP/2KR1B1R w - - 0 16",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "c7a8",
+    "c4c5",
+    "a8c7"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c7a8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c4c5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "a8c7",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "```\nc7a8\nc4c5\na8c7\n```\nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Ensuring the queen's movement adhered to the modified rule of not moving towards its own back rank.",
+    "difficulty_tier": "hard"
+  }
+}

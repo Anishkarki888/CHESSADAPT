@@ -1,0 +1,59 @@
+{
+  "experiment_id": "e2bb88f41ad74359",
+  "timestamp": 1776187336.1587052,
+  "task_type": "T3",
+  "fen": "r4rk1/1p3p1p/pbnqbp2/3pp2N/8/2PP3P/PPNQ1PP1/R3KB1R b KQ - 1 15",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d6c5",
+    "g2g3",
+    "f6g7"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d6c5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "g2g3",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f6g7",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 3,
+    "legal_moves": 3,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.2,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nd6c5\ng2g3\nf6g7\n\nCONFIDENCE: 8  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Ensuring the knight's modified movement rule was consistently applied was challenging due to its deviation from standard chess rules.",
+    "difficulty_tier": "hard"
+  }
+}

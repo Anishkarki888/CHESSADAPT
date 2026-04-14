@@ -1,0 +1,42 @@
+{
+  "experiment_id": "d4a51224b3c140a6",
+  "timestamp": 1776189997.6750233,
+  "task_type": "T2",
+  "fen": "3q1rk1/p1Q1ppb1/7p/6p1/2bP4/2P2NB1/P4PPP/2R1R1K1 b - - 0 21",
+  "rule_names": [
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "e7e5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "e7e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.2,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: e7e5 e5e4\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the two moves did not violate any standard chess rules, such as putting my own king in check.",
+    "difficulty_tier": "easy"
+  }
+}

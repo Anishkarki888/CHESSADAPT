@@ -1,0 +1,53 @@
+{
+  "experiment_id": "8d58b8685be643a6",
+  "timestamp": 1776184808.8206282,
+  "task_type": "T3",
+  "fen": "2k4r/p1p2p2/1p4p1/8/6K1/NQ4R1/PP4P1/5q2 b - - 0 30",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "f1f5",
+    "g4g3",
+    "f5h5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "f1f5",
+      "is_inhibition_failure": true,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g4g3",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f5h5",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 0.6667,
+    "flexibility_index": 1.0,
+    "composite_score": 0.4,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 1,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "f1f5  \ng4g3  \nf5h5  ",
+    "difficulty_tier": "hard"
+  }
+}

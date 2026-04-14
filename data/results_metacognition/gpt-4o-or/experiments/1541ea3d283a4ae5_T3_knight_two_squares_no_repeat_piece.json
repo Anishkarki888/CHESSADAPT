@@ -1,0 +1,59 @@
+{
+  "experiment_id": "1541ea3d283a4ae5",
+  "timestamp": 1776187402.8183858,
+  "task_type": "T3",
+  "fen": "r1b1k2r/pp4bp/nqn3p1/2ppPPN1/8/2P1B3/PP3Q1P/RN3RK1 b - - 0 16",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "b6e3",
+    "f2e3",
+    "c8f5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b6e3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f2e3",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c8f5",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.3333,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.6667,
+    "total_moves": 3,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nb6e3\nf2e3\nc8f5\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the knight's modified movement rule was correctly applied while also adhering to the restriction of not moving the same piece consecutively.",
+    "difficulty_tier": "hard"
+  }
+}

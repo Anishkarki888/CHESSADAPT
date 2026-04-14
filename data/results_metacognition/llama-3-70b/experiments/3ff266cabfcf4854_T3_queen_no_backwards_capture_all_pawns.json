@@ -1,0 +1,59 @@
+{
+  "experiment_id": "3ff266cabfcf4854",
+  "timestamp": 1776189560.0117111,
+  "task_type": "T3",
+  "fen": "7r/p4pk1/5p2/1pp2R1p/8/2Pn3P/PP3PP1/3B2K1 b - - 3 24",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "e7e5",
+    "e5d4",
+    "d4c3"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e7e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e5d4",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4c3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\ne7e5\ne5d4\nd4c3\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the queen didn't move towards its own back rank, especially in the second move, where the queen had to move diagonally to attack the pawn while avoiding the back rank.",
+    "difficulty_tier": "hard"
+  }
+}

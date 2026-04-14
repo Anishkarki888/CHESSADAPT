@@ -1,0 +1,53 @@
+{
+  "experiment_id": "50cb3cbd7913436b",
+  "timestamp": 1776185949.5550494,
+  "task_type": "T3",
+  "fen": "4Q1k1/p5p1/2pN1rbp/2P3p1/3P1nP1/1P6/P6P/6K1 b - - 0 33",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "b7b5",
+    "b5b4",
+    "g7g5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b7b5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b5b4",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g7g5",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "b7b5\nb5b4\ng7g5",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "67f77010ff4c4ae0",
+  "timestamp": 1776187541.0564568,
+  "task_type": "T1",
+  "fen": "r5k1/4pp1p/1n4p1/r6n/4P3/1PN2P2/PP1R2PP/1K1R4 w - - 3 23",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "d2d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d2d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: d2d4\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Visualizing the new knight movement pattern was challenging because it's so different from the standard L-shape and requires thinking about squares exactly 2 spaces away in any direction.",
+    "difficulty_tier": "easy"
+  }
+}

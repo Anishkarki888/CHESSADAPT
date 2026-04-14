@@ -1,0 +1,59 @@
+{
+  "experiment_id": "e360627299974389",
+  "timestamp": 1776187354.4871218,
+  "task_type": "T3",
+  "fen": "r3k2r/3bqppp/p1n1p3/1p6/3PN3/bP5P/1B3PP1/1BRQ1R1K w kq - 0 19",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d4c6",
+    "e7d6",
+    "b2a3"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4c6",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e7d6",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "b2a3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.3333,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.6667,
+    "total_moves": 3,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nd4c6\ne7d6\nb2a3\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring the knight's modified movement rule was correctly applied was the hardest part.",
+    "difficulty_tier": "hard"
+  }
+}

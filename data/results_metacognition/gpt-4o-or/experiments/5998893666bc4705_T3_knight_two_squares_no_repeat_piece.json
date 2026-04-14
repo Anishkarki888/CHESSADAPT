@@ -1,0 +1,59 @@
+{
+  "experiment_id": "5998893666bc4705",
+  "timestamp": 1776187372.561165,
+  "task_type": "T3",
+  "fen": "3R4/pp3pkp/1qp2bp1/2n1p3/2B1P3/2P2N1P/PPQ2PP1/2K5 b - - 0 19",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "b6b5",
+    "c4b3",
+    "f6g5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "b6b5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c4b3",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f6g5",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 3,
+    "legal_moves": 3,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.2,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nb6b5\nc4b3\nf6g5\n\nCONFIDENCE: 8  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: The hardest part was ensuring the knight's move adhered to the modified rule of moving exactly 2 squares in any direction.",
+    "difficulty_tier": "hard"
+  }
+}

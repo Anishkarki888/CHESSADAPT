@@ -1,0 +1,42 @@
+{
+  "experiment_id": "553b1f23b2074cef",
+  "timestamp": 1776187279.0192502,
+  "task_type": "T2",
+  "fen": "Q6r/3kpp2/3p1qpp/2b5/2pN4/4P2P/5PPB/5K1R w - - 2 27",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "0000"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "0000",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: Qb7\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Understanding the knight's new movement pattern was challenging because it deviates significantly from traditional chess rules.",
+    "difficulty_tier": "easy"
+  }
+}

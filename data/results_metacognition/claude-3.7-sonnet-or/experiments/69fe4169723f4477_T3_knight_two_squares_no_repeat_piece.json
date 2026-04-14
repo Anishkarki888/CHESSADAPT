@@ -1,0 +1,59 @@
+{
+  "experiment_id": "69fe4169723f4477",
+  "timestamp": 1776188221.2696328,
+  "task_type": "T3",
+  "fen": "2k4r/p1p2p2/1p4p1/8/6K1/NQ4R1/PP4P1/5q2 b - - 0 30",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "f1g2",
+    "c8d7",
+    "h8h4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f1g2",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c8d7",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "h8h4",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\nf1g2\nc8d7\nh8h4\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The knight rule was hardest to apply because I had to visualize the new movement pattern of exactly 2 squares in any direction instead of the traditional L-shape.",
+    "difficulty_tier": "hard"
+  }
+}

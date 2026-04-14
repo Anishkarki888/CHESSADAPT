@@ -1,0 +1,53 @@
+{
+  "experiment_id": "9a89706598c64e76",
+  "timestamp": 1776184881.7786958,
+  "task_type": "T3",
+  "fen": "7r/p4pk1/5p2/1pp2R1p/8/2Pn3P/PP3PP1/3B2K1 b - - 3 24",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "c3b1",
+    "h8d8",
+    "b1c3"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c3b1",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "h8d8",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b1c3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "c3b1  \nh8d8  \nb1c3  ",
+    "difficulty_tier": "hard"
+  }
+}

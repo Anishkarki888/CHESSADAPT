@@ -1,0 +1,53 @@
+{
+  "experiment_id": "ec07b59b895b4aa4",
+  "timestamp": 1776184916.058814,
+  "task_type": "T3",
+  "fen": "3q1rk1/4b1pp/4p3/2P3n1/1rNP1p2/5N2/5PPP/R1Q2RK1 w - - 2 27",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "c4b4",
+    "a1a3",
+    "a3b3"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c4b4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "a1a3",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "a3b3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "c4b4  \na1a3  \na3b3",
+    "difficulty_tier": "hard"
+  }
+}

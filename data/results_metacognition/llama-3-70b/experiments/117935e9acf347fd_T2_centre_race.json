@@ -1,0 +1,42 @@
+{
+  "experiment_id": "117935e9acf347fd",
+  "timestamp": 1776189183.0560813,
+  "task_type": "T2",
+  "fen": "r3k2r/p4p2/b2qpp2/2p4p/3p4/5N2/PPPQ1PPP/R3R1K1 w kq - 0 18",
+  "rule_names": [
+    "centre_race"
+  ],
+  "model_moves": [
+    "d2d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d2d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d2d4\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the move didn't inadvertently block the path to e4 or e5, while still making progress towards one of those squares.",
+    "difficulty_tier": "easy"
+  }
+}

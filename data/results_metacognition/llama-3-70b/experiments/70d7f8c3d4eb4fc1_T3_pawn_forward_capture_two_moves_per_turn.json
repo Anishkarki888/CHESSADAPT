@@ -1,0 +1,43 @@
+{
+  "experiment_id": "70d7f8c3d4eb4fc1",
+  "timestamp": 1776189511.2511537,
+  "task_type": "T3",
+  "fen": "r2q1bk1/1b3p1p/1p2p1p1/nn1pP3/P2P1P2/5N2/4B1PP/2RQ1R1K w - - 0 20",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "0000"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "0000",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd4 d5\nNf3 Nc3\nb3 b4\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Applying the modified pawn capture rule was the hardest part, as it required me to think differently about pawn movements and captures.",
+    "difficulty_tier": "hard"
+  }
+}

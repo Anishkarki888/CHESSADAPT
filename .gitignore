@@ -5,6 +5,8 @@ __pycache__/
 .coverage
 htmlcov/
 data/logs/
-data/tasks/
 .DS_Store
 .python-version
+
+chessadapt-code.zip
+chessadapt-task.gz

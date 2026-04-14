@@ -1,0 +1,42 @@
+{
+  "experiment_id": "d14c64e5f3044ac1",
+  "timestamp": 1776187253.5968387,
+  "task_type": "T2",
+  "fen": "rn4k1/pp2Pr2/3q3p/6p1/2B1P3/2N2P2/P1P3PP/R1Q1K2R w KQ - 1 23",
+  "rule_names": [
+    "bishop_as_rook"
+  ],
+  "model_moves": [
+    "c4f7"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "c4f7",
+      "is_inhibition_failure": true,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 0.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.2,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 1,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: c4f7  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: The hardest part was ensuring the bishop's orthogonal movement was correctly applied, as it differs from its usual diagonal movement.",
+    "difficulty_tier": "easy"
+  }
+}

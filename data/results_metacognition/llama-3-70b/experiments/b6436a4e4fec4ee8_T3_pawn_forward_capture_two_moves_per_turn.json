@@ -1,0 +1,51 @@
+{
+  "experiment_id": "b6436a4e4fec4ee8",
+  "timestamp": 1776189297.7616677,
+  "task_type": "T3",
+  "fen": "2k4r/p1p2p2/1p4p1/8/6K1/NQ4R1/PP4P1/5q2 b - - 0 30",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "d7d5",
+    "d5d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d5d4",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 2,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVES:\nd7d5\nd5d4\nq7q5\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was remembering that pawns capture straight forward, not diagonally, which affected my decision to move the pawn on d7 to d5 and then d4, instead of trying to capture the pawn on c4 diagonally.",
+    "difficulty_tier": "hard"
+  }
+}

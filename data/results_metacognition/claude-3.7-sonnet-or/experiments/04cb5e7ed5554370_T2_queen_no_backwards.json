@@ -1,0 +1,42 @@
+{
+  "experiment_id": "04cb5e7ed5554370",
+  "timestamp": 1776187968.366614,
+  "task_type": "T2",
+  "fen": "rbb1k2r/2q2p1p/n1p1pp2/p7/2PP2P1/P3BN2/1P1QB2P/2KR3R w kq - 1 20",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "d1d8"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d1d8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: d1d8\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Determining which directions count as \"towards its own back rank\" for the queen, but since the queen isn't moving in this case, the rule doesn't apply.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "experiment_id": "6696d00ce8f64e3a",
+  "timestamp": 1776184860.9652307,
+  "task_type": "T3",
+  "fen": "3R4/pp3pkp/1qp2bp1/2n1p3/2B1P3/2P2N1P/PPQ2PP1/2K5 b - - 0 19",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "g7d8",
+    "c5e6",
+    "d8d1"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g7d8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c5e6",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "d8d1",
+      "is_inhibition_failure": true,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "g7d8  \nc5e6  \nd8d1",
+    "difficulty_tier": "hard"
+  }
+}

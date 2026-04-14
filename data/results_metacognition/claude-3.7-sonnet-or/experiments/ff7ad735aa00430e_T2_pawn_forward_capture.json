@@ -1,0 +1,42 @@
+{
+  "experiment_id": "ff7ad735aa00430e",
+  "timestamp": 1776188091.570372,
+  "task_type": "T2",
+  "fen": "r3k2r/p4p2/b2qpp2/2p4p/3p4/5N2/PPPQ1PPP/R3R1K1 w kq - 0 18",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "f3d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f3d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: f3d4\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Remembering that the modified rule only affects pawn captures, not knight moves or other pieces.",
+    "difficulty_tier": "easy"
+  }
+}

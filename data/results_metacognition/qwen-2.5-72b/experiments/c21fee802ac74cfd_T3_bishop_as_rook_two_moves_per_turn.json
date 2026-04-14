@@ -1,0 +1,59 @@
+{
+  "experiment_id": "c21fee802ac74cfd",
+  "timestamp": 1776190235.926303,
+  "task_type": "T3",
+  "fen": "r4rk1/1p3p1p/pbnqbp2/3pp2N/8/2PP3P/PPNQ1PP1/R3KB1R b KQ - 1 15",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "e7e5",
+    "d7d5",
+    "f8f6"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e7e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f8f6",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "e7e5\nd7d5\nf8f6\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring the bishop moved orthogonally, as it is not its usual movement in standard chess.",
+    "difficulty_tier": "hard"
+  }
+}

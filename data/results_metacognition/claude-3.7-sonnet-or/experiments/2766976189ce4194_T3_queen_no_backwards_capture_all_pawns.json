@@ -1,0 +1,59 @@
+{
+  "experiment_id": "2766976189ce4194",
+  "timestamp": 1776188283.832499,
+  "task_type": "T3",
+  "fen": "r1b2r2/1pp2ppk/1pnp3p/6q1/2B1PR2/2P4P/PP3QP1/RN4K1 b - - 2 15",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "g5e5",
+    "c6e5",
+    "f8f4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "g5e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c6e5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f8f4",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\ng5e5\nc6e5\nf8f4\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The queen movement restriction was the hardest to apply because I had to carefully check that the black queen's move on the first turn wasn't moving toward its own back rank (rank 8).",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "experiment_id": "b94dcdd68d0a4294",
+  "timestamp": 1776186088.8654306,
+  "task_type": "T3",
+  "fen": "8/6k1/p2Np1p1/1pp1N2p/5K2/P2n4/1Pb2PPP/8 w - - 1 32",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "b2b4",
+    "b4b5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b2b4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b4b5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 2,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "b2b4\nb4b5\nNc4d6",
+    "difficulty_tier": "hard"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "5d632c95e2424e3c",
+  "timestamp": 1776187600.447918,
+  "task_type": "T1",
+  "fen": "rbb1k2r/2q2p1p/n1p1pp2/p7/2PP2P1/P3BN2/1P1QB2P/2KR3R w kq - 1 20",
+  "rule_names": [
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "d4d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d4d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: d4d5\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: Determining which pawn capture would be most advantageous while maintaining a strong position was challenging since I need to balance capturing pawns with maintaining overall board control.",
+    "difficulty_tier": "easy"
+  }
+}

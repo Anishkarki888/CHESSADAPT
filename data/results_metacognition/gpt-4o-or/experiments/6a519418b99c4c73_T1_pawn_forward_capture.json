@@ -1,0 +1,42 @@
+{
+  "experiment_id": "6a519418b99c4c73",
+  "timestamp": 1776187012.3575053,
+  "task_type": "T1",
+  "fen": "r4rk1/p5pp/3b4/3P2B1/8/5BPb/PP3P1P/R2R2K1 b - - 0 23",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "h3g2"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "h3g2",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: h3g2  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Ensuring pawns capture straight forward instead of diagonally was challenging.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "b284dedda7b4478b",
+  "timestamp": 1776187426.4407759,
+  "task_type": "T3",
+  "fen": "4rrk1/3qp3/2ppNb2/pp3p1p/3P1BpP/P1P5/1PQ1RP2/R5K1 b - - 3 26",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "d7e6",
+    "f8f7",
+    "e6e2"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d7e6",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f8f7",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e6e2",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nd7e6\nf8f7\ne6e2\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: Adapting to the orthogonal movement of bishops was challenging, as it required rethinking their typical diagonal strategy.",
+    "difficulty_tier": "hard"
+  }
+}

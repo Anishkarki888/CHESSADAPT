@@ -1,0 +1,42 @@
+{
+  "experiment_id": "ea0ee4e3a67940f1",
+  "timestamp": 1776187106.479197,
+  "task_type": "T1",
+  "fen": "rn4k1/pp2Pr2/3q3p/6p1/2B1P3/2N2P2/P1P3PP/R1Q1K2R w KQ - 1 23",
+  "rule_names": [
+    "bishop_as_rook"
+  ],
+  "model_moves": [
+    "c4d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": false,
+      "uci_move": "c4d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: c4d4  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Remembering that bishops cannot move diagonally and must move orthogonally instead.",
+    "difficulty_tier": "easy"
+  }
+}

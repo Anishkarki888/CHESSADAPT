@@ -1,0 +1,53 @@
+{
+  "experiment_id": "41ecd32cba1842d1",
+  "timestamp": 1776185681.103546,
+  "task_type": "T3",
+  "fen": "5rk1/p2R1ppp/1pp2n2/4p3/4P3/5P2/PPP1N1PP/5R1K b - - 0 20",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "a7a6",
+    "c6c5",
+    "g8g7"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "a7a6",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c6c5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g8g7",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "a7a6\nc6c5\ng8g7",
+    "difficulty_tier": "hard"
+  }
+}

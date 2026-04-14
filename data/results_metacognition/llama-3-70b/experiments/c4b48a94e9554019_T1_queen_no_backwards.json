@@ -1,0 +1,42 @@
+{
+  "experiment_id": "c4b48a94e9554019",
+  "timestamp": 1776188766.962725,
+  "task_type": "T1",
+  "fen": "rbb1k2r/2q2p1p/n1p1pp2/p7/2PP2P1/P3BN2/1P1QB2P/2KR3R w kq - 1 20",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "d4d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d4d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.2,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d4d5\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring the queen doesn't move towards its own back rank while still making a meaningful move that develops a piece and attacks the opponent's pawn.",
+    "difficulty_tier": "easy"
+  }
+}

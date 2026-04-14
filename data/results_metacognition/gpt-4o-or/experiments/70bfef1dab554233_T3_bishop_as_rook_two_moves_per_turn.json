@@ -1,0 +1,59 @@
+{
+  "experiment_id": "70bfef1dab554233",
+  "timestamp": 1776187347.2965794,
+  "task_type": "T3",
+  "fen": "2r5/p3kppp/p3p3/1nN3PP/2nP1P2/8/P7/R4RK1 b - - 3 28",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "c5c4",
+    "e7d6",
+    "d4d3"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c5c4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "e7d6",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4d3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "```\nc5c4\ne7d6\nd4d3\n```\nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Adapting to the orthogonal movement of bishops was challenging as it differs significantly from standard chess rules.",
+    "difficulty_tier": "hard"
+  }
+}

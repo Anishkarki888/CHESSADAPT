@@ -1,0 +1,42 @@
+{
+  "experiment_id": "2fc303a150ac4aaa",
+  "timestamp": 1776190003.369132,
+  "task_type": "T2",
+  "fen": "r4rk1/p5pp/3b4/3P2B1/8/5BPb/PP3P1P/R2R2K1 b - - 0 23",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "e8c8"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e8c8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: e8c8\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was remembering that knights move exactly 2 squares in any direction, not in the traditional L-shape, which is deeply ingrained.",
+    "difficulty_tier": "easy"
+  }
+}

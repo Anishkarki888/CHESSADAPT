@@ -1,0 +1,59 @@
+{
+  "experiment_id": "106d8a63f7d146b3",
+  "timestamp": 1776188609.1996176,
+  "task_type": "T3",
+  "fen": "3q1rk1/4b1pp/4p3/2P3n1/1rNP1p2/5N2/5PPP/R1Q2RK1 w - - 2 27",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "c5e6",
+    "c1c8",
+    "c8d8"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c5e6",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c1c8",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c8d8",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\nc5e6\nc1c8\nc8d8\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The pawn capture rule was the hardest to apply because it requires overriding the deeply ingrained standard chess capture pattern for pawns.",
+    "difficulty_tier": "hard"
+  }
+}

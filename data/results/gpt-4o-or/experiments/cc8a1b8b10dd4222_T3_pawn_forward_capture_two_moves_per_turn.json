@@ -1,0 +1,53 @@
+{
+  "experiment_id": "cc8a1b8b10dd4222",
+  "timestamp": 1776184850.3160207,
+  "task_type": "T3",
+  "fen": "r3k2r/3bqppp/p1n1p3/1p6/3PN3/bP5P/1B3PP1/1BRQ1R1K w kq - 0 19",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "d4d5",
+    "e6d5",
+    "b2a3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "d4d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "e6d5",
+      "is_inhibition_failure": true,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b2a3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 0.6667,
+    "flexibility_index": 1.0,
+    "composite_score": 0.7333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 1,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "d4d5  \ne6d5  \nb2a3",
+    "difficulty_tier": "hard"
+  }
+}

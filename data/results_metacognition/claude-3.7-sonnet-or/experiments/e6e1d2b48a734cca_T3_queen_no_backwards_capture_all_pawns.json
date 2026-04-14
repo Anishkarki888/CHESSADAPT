@@ -1,0 +1,59 @@
+{
+  "experiment_id": "e6e1d2b48a734cca",
+  "timestamp": 1776188314.0268059,
+  "task_type": "T3",
+  "fen": "r4rk1/1p3p1p/pbnqbp2/3pp2N/8/2PP3P/PPNQ1PP1/R3KB1R b KQ - 1 15",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "d6d4",
+    "e6d5",
+    "c6d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d6d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e6d5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c6d4",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.3333,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.6667,
+    "total_moves": 3,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\nd6d4\ne6d5\nc6d4\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The queen rule was hardest to apply because I had to carefully check that the queen's move from d6 to d4 doesn't move toward Black's back rank (8th rank).",
+    "difficulty_tier": "hard"
+  }
+}

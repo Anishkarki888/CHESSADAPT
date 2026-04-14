@@ -1,0 +1,59 @@
+{
+  "experiment_id": "0c253f0dd9114aa5",
+  "timestamp": 1776190283.577078,
+  "task_type": "T3",
+  "fen": "r1b1rk2/ppNn1pb1/6pp/8/2P1PB2/5n2/PP4PP/2KR1B1R w - - 0 16",
+  "rule_names": [
+    "pawn_forward_capture",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "e4e5",
+    "d4d5",
+    "b1c3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "e4e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d4d5",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b1c3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVES (one per line):\ne4e5\nd4d5\nb1c3\n\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the pawn moves e4e5 and d4d5 did not involve any captures, as pawns capture straight forward in this modified rule set.",
+    "difficulty_tier": "hard"
+  }
+}

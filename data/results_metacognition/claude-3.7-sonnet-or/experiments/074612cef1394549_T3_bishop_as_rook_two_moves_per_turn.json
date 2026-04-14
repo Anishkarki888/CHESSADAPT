@@ -1,0 +1,59 @@
+{
+  "experiment_id": "074612cef1394549",
+  "timestamp": 1776188343.965582,
+  "task_type": "T3",
+  "fen": "2r5/p3kppp/p3p3/1nN3PP/2nP1P2/8/P7/R4RK1 b - - 3 28",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "c8c5",
+    "c5c1",
+    "c1a1"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c8c5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c5c1",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c1a1",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "c8c5\nc5c1\nc1a1\n\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The bishop rule wasn't relevant to these moves since no bishops are involved, so the main challenge was planning the optimal sequence using the two-moves-per-turn rule.",
+    "difficulty_tier": "hard"
+  }
+}

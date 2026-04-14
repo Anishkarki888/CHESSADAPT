@@ -1,0 +1,59 @@
+{
+  "experiment_id": "2575de5f6aaf4024",
+  "timestamp": 1776188470.938272,
+  "task_type": "T3",
+  "fen": "r1b2r1k/bp2q2p/2p1P3/p2p1p2/P4Np1/1Q2P3/1PN2PPP/R4RK1 b - - 0 23",
+  "rule_names": [
+    "queen_no_backwards",
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "c6c5",
+    "b7c6",
+    "e7e3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c6c5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b7c6",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e7e3",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.8333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVES (one per line):\nc6c5\nb7c6\ne7e3\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The queen restriction was hardest to apply because I had to carefully check that e7-e3 doesn't move the queen toward Black's back rank (8th rank).",
+    "difficulty_tier": "hard"
+  }
+}

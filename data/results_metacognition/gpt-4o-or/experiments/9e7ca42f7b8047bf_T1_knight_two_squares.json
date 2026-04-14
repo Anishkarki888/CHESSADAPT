@@ -1,0 +1,42 @@
+{
+  "experiment_id": "9e7ca42f7b8047bf",
+  "timestamp": 1776187066.4417975,
+  "task_type": "T1",
+  "fen": "rn1qkb1r/3n1p1p/p3p1pB/1p2P3/8/2N2P2/PPQ2P1P/1BRR2K1 w kq - 1 18",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "c3b5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "c3b5",
+      "is_inhibition_failure": true,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 0.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.2,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 1,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: c3b5  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: The hardest part was ensuring the knight moves exactly 2 squares in a straight line, as this deviates from its traditional L-shaped movement.",
+    "difficulty_tier": "easy"
+  }
+}

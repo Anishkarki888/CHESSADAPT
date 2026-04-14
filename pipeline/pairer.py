@@ -24,6 +24,7 @@ from tqdm import tqdm
 from engine.legal_moves import get_legal_moves_cached
 from pipeline.difficulty import DifficultyClassifier
 from pipeline.prompt_builder import build_prompt
+from pipeline.prompt_builder_metacognition import build_metacognition_prompt
 from tasks.schemas import TaskItem
 
 # ── CONFIG ──────────────────────────────────────────────────────────────
@@ -117,7 +118,14 @@ def build_rule_delta(perturbation: str, stacked: str | None = None) -> dict:
     return delta
 
 
-def pair_t1_t2(positions: list[dict], dc: DifficultyClassifier) -> Iterator[TaskItem]:
+def build_rule_delta_metacognition(perturbation: str, stacked: str | None = None) -> dict:
+    """Version for metacognition track (labels it explicitly)."""
+    delta = build_rule_delta(perturbation, stacked)
+    delta["type"] = "metacognition"
+    return delta
+
+
+def pair_t1_t2(positions: list[dict], dc: DifficultyClassifier, metacognition: bool = False) -> Iterator[TaskItem]:
     """
     Generate T1 and T2 task items.
     """
@@ -141,13 +149,19 @@ def pair_t1_t2(positions: list[dict], dc: DifficultyClassifier) -> Iterator[Task
                     continue
 
                 difficulty  = dc.classify(fen, pert)
-                rule_delta  = build_rule_delta(pert)
+                
+                if metacognition:
+                    rule_delta = build_rule_delta_metacognition(pert)
+                    prompt_builder_fn = build_metacognition_prompt
+                else:
+                    rule_delta = build_rule_delta(pert)
+                    prompt_builder_fn = build_prompt
 
                 # T1 — one move, binary scoring
                 yield TaskItem(
                     fen             = fen,
                     rule_delta      = rule_delta,
-                    prompt_template = build_prompt(fen, rule_delta, task_type="T1"),
+                    prompt_template = prompt_builder_fn(fen, rule_delta, task_type="T1"),
                     legal_moves     = legal_moves,
                     difficulty_tier = difficulty,
                     task_type       = "T1",
@@ -158,7 +172,7 @@ def pair_t1_t2(positions: list[dict], dc: DifficultyClassifier) -> Iterator[Task
                 yield TaskItem(
                     fen             = fen,
                     rule_delta      = rule_delta,
-                    prompt_template = build_prompt(fen, rule_delta, task_type="T2"),
+                    prompt_template = prompt_builder_fn(fen, rule_delta, task_type="T2"),
                     legal_moves     = legal_moves,
                     difficulty_tier = difficulty,
                     task_type       = "T2",
@@ -166,7 +180,7 @@ def pair_t1_t2(positions: list[dict], dc: DifficultyClassifier) -> Iterator[Task
                 )
 
 
-def pair_t3(positions: list[dict], dc: DifficultyClassifier) -> Iterator[TaskItem]:
+def pair_t3(positions: list[dict], dc: DifficultyClassifier, metacognition: bool = False) -> Iterator[TaskItem]:
     """
     Generate T3 task items: stacked rules, 3-move sequence.
     """
@@ -217,12 +231,17 @@ def pair_t3(positions: list[dict], dc: DifficultyClassifier) -> Iterator[TaskIte
                 if not legal_moves:
                     continue
 
-                rule_delta = build_rule_delta(pert1, stacked=pert2)
+                if metacognition:
+                    rule_delta = build_rule_delta_metacognition(pert1, stacked=pert2)
+                    prompt_builder_fn = build_metacognition_prompt
+                else:
+                    rule_delta = build_rule_delta(pert1, stacked=pert2)
+                    prompt_builder_fn = build_prompt
 
                 yield TaskItem(
                     fen             = fen,
                     rule_delta      = rule_delta,
-                    prompt_template = build_prompt(fen, rule_delta, task_type="T3"),
+                    prompt_template = prompt_builder_fn(fen, rule_delta, task_type="T3"),
                     legal_moves     = legal_moves,
                     difficulty_tier = "hard",
                     task_type       = "T3",
@@ -230,7 +249,7 @@ def pair_t3(positions: list[dict], dc: DifficultyClassifier) -> Iterator[TaskIte
                 )
 
 
-def run(positions_path: str = POSITIONS_PATH, tasks_dir: str = TASKS_DIR) -> None:
+def run(positions_path: str = POSITIONS_PATH, tasks_dir: str = TASKS_DIR, metacognition: bool = False) -> None:
     positions = load_positions(positions_path)
     out       = Path(tasks_dir)
     out.mkdir(parents=True, exist_ok=True)
@@ -240,14 +259,14 @@ def run(positions_path: str = POSITIONS_PATH, tasks_dir: str = TASKS_DIR) -> Non
     t2_items: list[TaskItem] = []
 
     with DifficultyClassifier() as dc:
-        for item in pair_t1_t2(positions, dc):
+        for item in pair_t1_t2(positions, dc, metacognition=metacognition):
             if item.task_type == "T1":
                 t1_items.append(item)
             else:
                 t2_items.append(item)
 
         # ── T3 ───────────────────────────────────────────────────────────────
-        t3_items = list(pair_t3(positions, dc))
+        t3_items = list(pair_t3(positions, dc, metacognition=metacognition))
 
     # ── Write JSONL ──────────────────────────────────────────────────────
     for filename, items in [
@@ -268,5 +287,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Pair positions with perturbations.")
     parser.add_argument("--positions", default=POSITIONS_PATH)
     parser.add_argument("--tasks-dir", default=TASKS_DIR)
+    parser.add_argument("--metacognition", action="store_true", help="Generate metacognition prompts")
     args = parser.parse_args()
-    run(positions_path=args.positions, tasks_dir=args.tasks_dir)
+    run(positions_path=args.positions, tasks_dir=args.tasks_dir, metacognition=args.metacognition)

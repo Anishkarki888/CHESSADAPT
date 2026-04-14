@@ -1,0 +1,36 @@
+{
+  "model": "claude-3.7-sonnet-or",
+  "model_config": {
+    "name": "Claude 3.7 Sonnet (OpenRouter)",
+    "tier": "frontier",
+    "model_id": "anthropic/claude-3.7-sonnet"
+  },
+  "total_tasks": 100,
+  "skipped": 0,
+  "failed": 0,
+  "evaluated": 100,
+  "experiment_summary": {
+    "total_experiments": 100,
+    "avg_compliance": 0.5534,
+    "avg_inhibition": 0.9833,
+    "avg_flexibility": 1.0,
+    "avg_composite": 0.7716,
+    "total_moves_evaluated": 300,
+    "total_legal_moves": 166,
+    "total_inhibition_failures": 5,
+    "metacognition": {
+      "avg_calibration_error": 0.897,
+      "avg_error_detection": 0.0,
+      "avg_overconfidence": 0.48,
+      "avg_underconfidence": 0.0
+    },
+    "by_task_type": {
+      "T3": {
+        "count": 100,
+        "avg_compliance": 0.5534,
+        "avg_composite": 0.7716
+      }
+    }
+  },
+  "timestamp": 1776188609.2045698
+}

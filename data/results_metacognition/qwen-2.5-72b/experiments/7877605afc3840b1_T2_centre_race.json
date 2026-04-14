@@ -1,0 +1,42 @@
+{
+  "experiment_id": "7877605afc3840b1",
+  "timestamp": 1776190010.166012,
+  "task_type": "T2",
+  "fen": "r4rk1/p5pp/3b4/3P2B1/8/5BPb/PP3P1P/R2R2K1 b - - 0 23",
+  "rule_names": [
+    "centre_race"
+  ],
+  "model_moves": [
+    "d5e4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d5e4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: d5e4\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the move directly places a piece on e4 or e5, as the rule is not very common in standard chess.",
+    "difficulty_tier": "easy"
+  }
+}

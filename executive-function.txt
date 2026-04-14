@@ -1,0 +1,53 @@
+hess-adapt) ➜  chess_benchmark git:(main) ✗ make analyze
+✓ Report saved to data/results/report.md
+# ChessAdapt Benchmark — Results Report
+
+## Model Comparison
+
+| Rank | Model | Tier | Tasks | Compliance | Inhibition | Flexibility | **Composite** |
+|:--:|:--|:--:|:--:|:--:|:--:|:--:|:--:|
+| 1 | GPT-4o (OpenRouter) | frontier | 100 | 0.583 | 0.953 | 1.000 | **0.778** |
+| 2 | Claude 3.7 Sonnet (OpenRouter) | frontier | 100 | 0.520 | 0.970 | 1.000 | **0.751** |
+| 3 | Qwen 2.5 72B | mid | 100 | 0.165 | 1.000 | 1.000 | **0.583** |
+| 4 | Llama 3 70B | mid | 100 | 0.130 | 1.000 | 1.000 | **0.565** |
+| 5 | GPT-4o | frontier | 0 | 0.000 | 0.000 | 0.000 | **0.000** |
+| 6 | Mistral Large | mid | 0 | 0.000 | 0.000 | 0.000 | **0.000** |
+
+## Gradient Verification
+
+**Status**: ✅ Verified
+
+- Frontier average: 0.509
+- Mid-tier average: 0.383
+- Weak-tier average: 0.000
+
+## Per-Perturbation Breakdown
+
+| Rule | Claude 3.7 Sonnet (OpenRouter) | GPT-4o (OpenRouter) | Llama 3 70B | Qwen 2.5 72B |
+|:--|:--:|:--:|:--:|:--:|
+| bishop_as_rook | 0.431 | 0.734 | 0.042 | 0.111 |
+| capture_all_pawns | 0.578 | 0.722 | 0.075 | 0.129 |
+| centre_race | 0.625 | 0.566 | 0.167 | 0.083 |
+| knight_two_squares | 0.699 | 0.612 | 0.096 | 0.101 |
+| no_repeat_piece | 0.687 | 0.732 | 0.184 | 0.044 |
+| pawn_forward_capture | 0.647 | 0.768 | 0.167 | 0.203 |
+| queen_no_backwards | 0.497 | 0.751 | 0.131 | 0.085 |
+| two_moves_per_turn | 0.541 | 0.735 | 0.153 | 0.189 |
+
+## Difficulty Tier Breakdown
+
+| Difficulty | Claude 3.7 Sonnet (OpenRouter) | GPT-4o (OpenRouter) | Llama 3 70B | Qwen 2.5 72B |
+|:--|:--:|:--:|:--:|:--:|
+| Easy | 0.667 | 0.775 | 0.156 | 0.089 |
+| Medium | 0.000 | 0.750 | 0.030 | 0.000 |
+| Hard | 0.510 | 0.573 | 0.125 | 0.159 |
+
+## Task Type Breakdown
+
+| Task Type | Claude 3.7 Sonnet (OpenRouter) | GPT-4o (OpenRouter) | Llama 3 70B | Qwen 2.5 72B |
+|:--|:--:|:--:|:--:|:--:|
+| T1 | 0.798 | 0.870 | 0.529 | 0.535 |
+| T2 | 0.814 | 0.872 | 0.550 | 0.550 |
+| T3 | 0.751 | 0.778 | 0.565 | 0.582 |%                                           
+(chess-adapt) ➜  chess_benchmark git:(main) ✗ 
+(chess-adapt) ➜  chess_benchmark git:(main) ✗ 

@@ -1,0 +1,30 @@
+{
+  "model": "qwen-2.5-72b",
+  "model_config": {
+    "name": "Qwen 2.5 72B",
+    "tier": "mid",
+    "model_id": "qwen/qwen-2.5-72b-instruct"
+  },
+  "total_tasks": 100,
+  "skipped": 0,
+  "failed": 0,
+  "evaluated": 100,
+  "experiment_summary": {
+    "total_experiments": 100,
+    "avg_compliance": 0.165,
+    "avg_inhibition": 1.0,
+    "avg_flexibility": 1.0,
+    "avg_composite": 0.5825,
+    "total_moves_evaluated": 292,
+    "total_legal_moves": 48,
+    "total_inhibition_failures": 0,
+    "by_task_type": {
+      "T3": {
+        "count": 100,
+        "avg_compliance": 0.165,
+        "avg_composite": 0.5825
+      }
+    }
+  },
+  "timestamp": 1776186398.0107272
+}

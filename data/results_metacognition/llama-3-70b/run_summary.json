@@ -1,0 +1,36 @@
+{
+  "model": "llama-3-70b",
+  "model_config": {
+    "name": "Llama 3 70B",
+    "tier": "mid",
+    "model_id": "meta-llama/llama-3-70b-instruct"
+  },
+  "total_tasks": 100,
+  "skipped": 0,
+  "failed": 1,
+  "evaluated": 99,
+  "experiment_summary": {
+    "total_experiments": 99,
+    "avg_compliance": 0.1077,
+    "avg_inhibition": 1.0,
+    "avg_flexibility": 1.0,
+    "avg_composite": 0.5539,
+    "total_moves_evaluated": 216,
+    "total_legal_moves": 31,
+    "total_inhibition_failures": 0,
+    "metacognition": {
+      "avg_calibration_error": 0.8,
+      "avg_error_detection": 0.0,
+      "avg_overconfidence": 0.9697,
+      "avg_underconfidence": 0.0
+    },
+    "by_task_type": {
+      "T3": {
+        "count": 99,
+        "avg_compliance": 0.1077,
+        "avg_composite": 0.5539
+      }
+    }
+  },
+  "timestamp": 1776189769.118588
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "6cb86a72d4b44b16",
+  "timestamp": 1776188054.8940914,
+  "task_type": "T2",
+  "fen": "r5k1/pp3pp1/4r2p/2p4P/3pP3/1P1Pq3/PBP5/3K1R2 w - - 1 26",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "0000"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "0000",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: Rf3\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The rule was straightforward to apply since the rook move doesn't involve the queen at all, so there was no difficulty in determining legality.",
+    "difficulty_tier": "easy"
+  }
+}

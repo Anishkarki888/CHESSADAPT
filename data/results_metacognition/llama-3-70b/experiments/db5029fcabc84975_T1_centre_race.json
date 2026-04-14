@@ -1,0 +1,42 @@
+{
+  "experiment_id": "db5029fcabc84975",
+  "timestamp": 1776188632.2350535,
+  "task_type": "T1",
+  "fen": "3q1rk1/p1Q1ppb1/7p/6p1/2bP4/2P2NB1/P4PPP/2R1R1K1 b - - 0 21",
+  "rule_names": [
+    "centre_race"
+  ],
+  "model_moves": [
+    "d7d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d7d5\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the move actually reaches e4 or e5, as the position is complex and there are many pieces on the board.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "81fd5e4574184f63",
+  "timestamp": 1776187390.5612352,
+  "task_type": "T3",
+  "fen": "rnr3k1/ppp1b1pp/4Nn2/3Np3/1PP5/P5P1/1B1P1P1P/3R1K2 b - - 3 17",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "b8d7",
+    "d5c7",
+    "e7d6"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "b8d7",
+      "is_inhibition_failure": true,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d5c7",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "e7d6",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.3333,
+    "inhibition_score": 0.6667,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5667,
+    "total_moves": 3,
+    "legal_moves": 1,
+    "inhibition_failures": 1,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVES (one per line):\nb8d7\nd5c7\ne7d6\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the knight's modified movement rule was consistently applied across all moves.",
+    "difficulty_tier": "hard"
+  }
+}

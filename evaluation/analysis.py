@@ -238,6 +238,44 @@ class ResultsAnalyzer:
 
         return "\n".join(lines)
 
+    def metacognition_table(self) -> str:
+        """Table of metacognitive performance (Confidence, Calibration, Error Detection)."""
+        meta_exists = any("metacognition" in s.get("experiment_summary", {}) for s in self._model_summaries.values())
+        if not meta_exists:
+            return "_No metacognition data available for these models._"
+
+        rows = []
+        for model_key, summary in sorted(self._model_summaries.items()):
+            config = MODEL_CONFIGS.get(model_key)
+            name = config.name if config else model_key
+            
+            m = summary.get("experiment_summary", {}).get("metacognition", {})
+            if not m:
+                continue
+
+            rows.append({
+                "model": name,
+                "calibration": m.get("avg_calibration_error", 0),
+                "detection": m.get("avg_error_detection", 0),
+                "overconf": m.get("avg_overconfidence", 0),
+                "underconf": m.get("avg_underconfidence", 0),
+            })
+
+        if not rows:
+            return "_No metacognition data available._"
+
+        lines = [
+            "| Model | Calibration Error ↓ | Error Detection ↑ | Overconfidence | Underconfidence |",
+            "|:--|:--:|:--:|:--:|:--:|",
+        ]
+        for r in rows:
+            lines.append(
+                f"| {r['model']} | {r['calibration']:.3f} | {r['detection']:.3f} | "
+                f"{r['overconf']:.3f} | {r['underconf']:.3f} |"
+            )
+
+        return "\n".join(lines)
+
     # ── Gradient verification ────────────────────────────────────────────
 
     def verify_gradient(self) -> dict[str, Any]:
@@ -304,6 +342,8 @@ class ResultsAnalyzer:
             self.difficulty_breakdown_table(),
             "\n## Task Type Breakdown\n",
             self.task_type_breakdown_table(),
+            "\n## Metacognition Analysis\n",
+            self.metacognition_table(),
         ]
         return "\n".join(sections)
 

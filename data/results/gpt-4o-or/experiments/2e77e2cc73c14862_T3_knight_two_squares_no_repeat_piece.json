@@ -1,0 +1,53 @@
+{
+  "experiment_id": "2e77e2cc73c14862",
+  "timestamp": 1776184902.2537858,
+  "task_type": "T3",
+  "fen": "2Qq1rk1/pp2ppbp/3p2p1/5b2/3n2P1/PP3N1P/1BPN1P2/R3K2R b KQ - 0 16",
+  "rule_names": [
+    "knight_two_squares",
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d4c2",
+    "f5e4",
+    "g7b2"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": true,
+      "uci_move": "d4c2",
+      "is_inhibition_failure": true,
+      "move_index": 0
+    },
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "f5e4",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g7b2",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.6667,
+    "inhibition_score": 0.6667,
+    "flexibility_index": 1.0,
+    "composite_score": 0.7333,
+    "total_moves": 3,
+    "legal_moves": 2,
+    "inhibition_failures": 1,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "d4c2  \nf5e4  \ng7b2  ",
+    "difficulty_tier": "hard"
+  }
+}

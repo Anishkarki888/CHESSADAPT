@@ -1,0 +1,16 @@
+{
+  "model": "mistral-large",
+  "model_config": {
+    "name": "Mistral Large",
+    "tier": "mid",
+    "model_id": "mistralai/mistral-large-latest"
+  },
+  "total_tasks": 100,
+  "skipped": 0,
+  "failed": 100,
+  "evaluated": 0,
+  "experiment_summary": {
+    "total_experiments": 0
+  },
+  "timestamp": 1776186130.008423
+}

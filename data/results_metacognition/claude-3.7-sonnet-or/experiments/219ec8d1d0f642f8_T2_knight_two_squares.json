@@ -1,0 +1,42 @@
+{
+  "experiment_id": "219ec8d1d0f642f8",
+  "timestamp": 1776187990.791821,
+  "task_type": "T2",
+  "fen": "rn1qkb1r/3n1p1p/p3p1pB/1p2P3/8/2N2P2/PPQ2P1P/1BRR2K1 w kq - 1 18",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "c3e3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": false,
+      "uci_move": "c3e3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: c3e3\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Visualizing the new knight movement pattern required careful counting to ensure exactly 2 squares in any direction.",
+    "difficulty_tier": "easy"
+  }
+}

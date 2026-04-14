@@ -1,0 +1,42 @@
+{
+  "experiment_id": "005b8cc882f148f8",
+  "timestamp": 1776189797.063103,
+  "task_type": "T1",
+  "fen": "3q1rk1/p1Q1ppb1/7p/6p1/2bP4/2P2NB1/P4PPP/2R1R1K1 b - - 0 21",
+  "rule_names": [
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "e5d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e5d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: e5d4\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the move directly contributes to the goal of capturing pawns, as the modified rule shifts the focus from checkmating to pawn capture.",
+    "difficulty_tier": "easy"
+  }
+}

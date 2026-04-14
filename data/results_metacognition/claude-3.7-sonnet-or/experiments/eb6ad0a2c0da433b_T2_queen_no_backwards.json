@@ -1,0 +1,42 @@
+{
+  "experiment_id": "eb6ad0a2c0da433b",
+  "timestamp": 1776188178.6936595,
+  "task_type": "T2",
+  "fen": "Q6r/3kpp2/3p1qpp/2b5/2pN4/4P2P/5PPB/5K1R w - - 2 27",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "a8e8"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "a8e8",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: a8e8\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Determining what constitutes \"towards its own back rank\" since I needed to verify that moving the queen horizontally from a8 to e8 doesn't violate the rule as it's not moving toward the 1st rank for white.",
+    "difficulty_tier": "hard"
+  }
+}

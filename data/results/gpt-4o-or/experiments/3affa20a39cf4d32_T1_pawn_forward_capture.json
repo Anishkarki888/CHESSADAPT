@@ -1,0 +1,36 @@
+{
+  "experiment_id": "3affa20a39cf4d32",
+  "timestamp": 1776184475.0074043,
+  "task_type": "T1",
+  "fen": "3r3r/nkp2p2/1p2p2p/3pP1p1/p2P2P1/PNq4P/2P1QP2/2KR3R w - - 0 26",
+  "rule_names": [
+    "pawn_forward_capture"
+  ],
+  "model_moves": [
+    "b3a4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "b3a4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": null
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "b3a4",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "0ffa5e4bde114cf6",
+  "timestamp": 1776187077.1866467,
+  "task_type": "T1",
+  "fen": "r1q2rk1/pb1nbppp/1p2p3/2p1P3/2P5/1P3NP1/PBQ2PBP/R3R1K1 b - - 2 16",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "b7f3"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "b7f3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: b7f3  \nCONFIDENCE: 9  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Determining the exact two-square movement direction for the knight was challenging due to the non-standard rule.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "experiment_id": "6c263afd86594a88",
+  "timestamp": 1776187227.1034062,
+  "task_type": "T2",
+  "fen": "r1q2rk1/pb1nbppp/1p2p3/2p1P3/2P5/1P3NP1/PBQ2PBP/R3R1K1 b - - 2 16",
+  "rule_names": [
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "c7c6"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c7c6",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: c7c6 c5d4\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that both moves are legal and strategically sound in sequence.",
+    "difficulty_tier": "easy"
+  }
+}

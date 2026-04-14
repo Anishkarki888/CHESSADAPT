@@ -8,7 +8,9 @@ Chess is the ideal domain to expose this gap. Large language models ingest milli
 
 ChessAdapt exploits this directly. By **perturbing the rules of chess** — altering how pieces move, changing win conditions, and modifying turn structure — we force models to suppress their internalized game tree and reason under novel constraints. A model that cannot inhibit its memorized priors will play standard-chess moves that are now *illegal*. A model that cannot flexibly adapt will fail as perturbation complexity increases.
 
-This benchmark targets two specific executive functions from the cognitive framework for measuring progress toward AGI: **inhibitory control** (suppressing dominant but now-incorrect responses) and **cognitive flexibility** (switching between rule sets and adapting strategies accordingly).
+This benchmark targets critical cognitive faculties from the framework for measuring progress toward AGI: 
+1. **Executive Functions**: Specifically **inhibitory control** (suppressing dominant but now-incorrect responses), **cognitive flexibility** (switching between rule sets), and **working memory** (compositional reasoning across sequences).
+2. **Metacognition**: Specifically **monitoring** (confidence calibration and error detection) and **knowledge boundary awareness** (prospective difficulty judgment).
 
 ## Benchmark Design
 
@@ -21,6 +23,13 @@ ChessAdapt defines three task types of increasing cognitive demand:
 | **T1** | Single rule change, produce one move | Binary: legal or not | Low — rule comprehension |
 | **T2** | Single rule change, produce best move | Legal rate + engine eval | Medium — comprehension + strategy |
 | **T3** | 2–3 stacked rule changes, 3-move sequence | Per-move compliance × coherence | High — multi-rule reasoning |
+
+### Metacognitive Probing
+
+ChessAdapt doesn't just score the moves; it probes the model’s internal state. Every task includes a **Metacognitive Response Block** where the model must report its confidence (1-10) and predict whether its move was legal BEFORE receiving feedback. This allows us to calculate:
+- **Calibration Error**: The distance between stated confidence and actual correctness.
+- **Overconfidence Ratio**: How often a model plays an illegal move with high confidence (>=8/10).
+- **In-Context Monitoring**: The accuracy of the model's YES/NO prediction of its own move's legality.
 
 ### Perturbation Catalogue
 

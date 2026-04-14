@@ -5,26 +5,26 @@
     "tier": "mid",
     "model_id": "meta-llama/llama-3-70b-instruct"
   },
-  "total_tasks": 4000,
-  "skipped": 3499,
-  "failed": 1,
-  "evaluated": 500,
+  "total_tasks": 100,
+  "skipped": 0,
+  "failed": 0,
+  "evaluated": 100,
   "experiment_summary": {
-    "total_experiments": 500,
-    "avg_compliance": 0.03,
+    "total_experiments": 100,
+    "avg_compliance": 0.13,
     "avg_inhibition": 1.0,
     "avg_flexibility": 1.0,
-    "avg_composite": 0.515,
-    "total_moves_evaluated": 500,
-    "total_legal_moves": 15,
+    "avg_composite": 0.565,
+    "total_moves_evaluated": 262,
+    "total_legal_moves": 38,
     "total_inhibition_failures": 0,
     "by_task_type": {
-      "T1": {
-        "count": 500,
-        "avg_compliance": 0.03,
-        "avg_composite": 0.515
+      "T3": {
+        "count": 100,
+        "avg_compliance": 0.13,
+        "avg_composite": 0.565
       }
     }
   },
-  "timestamp": 1774781335.1302094
+  "timestamp": 1776186113.6507108
 }

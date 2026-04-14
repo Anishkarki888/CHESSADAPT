@@ -1,0 +1,42 @@
+{
+  "experiment_id": "f81dac87ca3e4f63",
+  "timestamp": 1776187822.0506365,
+  "task_type": "T2",
+  "fen": "3q1rk1/p1Q1ppb1/7p/6p1/2bP4/2P2NB1/P4PPP/2R1R1K1 b - - 0 21",
+  "rule_names": [
+    "bishop_as_rook"
+  ],
+  "model_moves": [
+    "c4a4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": false,
+      "uci_move": "c4a4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.1,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: c4a4\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: Remembering that bishops now move like rooks (orthogonally) instead of their usual diagonal movement pattern.",
+    "difficulty_tier": "easy"
+  }
+}

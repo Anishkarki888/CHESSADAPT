@@ -1,0 +1,42 @@
+{
+  "experiment_id": "7296ad548a694bdf",
+  "timestamp": 1776187582.9268126,
+  "task_type": "T1",
+  "fen": "r2b2k1/pp3rpp/q2p1p2/3RnP2/2P1PB2/1P4Q1/P5PP/R6K b - - 0 22",
+  "rule_names": [
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "a6a5"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "a6a5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.2,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: a6a5\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Understanding whether I should provide one move or two moves, since the rule states each player makes two moves per turn but the instructions ask for exactly one move.",
+    "difficulty_tier": "easy"
+  }
+}

@@ -32,13 +32,18 @@ def main() -> None:
         default=0,
         help="After writing, print N sample items from each file (default: 0)",
     )
+    parser.add_argument(
+        "--metacognition",
+        action="store_true",
+        help="Generate prompts with metacognition probes",
+    )
     args = parser.parse_args()
 
     print("\nChessAdapt — Pairer Pipeline")
     print("=" * 50)
 
     start = time.time()
-    run_pairer(positions_path=args.positions, tasks_dir=args.tasks_dir)
+    run_pairer(positions_path=args.positions, tasks_dir=args.tasks_dir, metacognition=args.metacognition)
     elapsed = time.time() - start
 
     print(f"\nPairer completed in {elapsed:.1f}s")

@@ -1,0 +1,59 @@
+{
+  "experiment_id": "7bfbd30348cf4e0e",
+  "timestamp": 1776188376.428106,
+  "task_type": "T3",
+  "fen": "1rn3kr/p2p1pb1/3Pp1p1/NPp1P1Pp/7P/5Q2/P4PK1/R4R2 b - - 1 26",
+  "rule_names": [
+    "bishop_as_rook",
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "g7c3",
+    "c3a1",
+    "a1g7"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "g7c3",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "c3a1",
+      "is_inhibition_failure": false,
+      "move_index": 1
+    },
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "a1g7",
+      "is_inhibition_failure": false,
+      "move_index": 2
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 3,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "g7c3\nc3a1\na1g7\n\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: The bishop movement rule was hardest to apply because I had to mentally override the standard diagonal movement pattern and ensure I was only considering orthogonal (rook-like) moves for the bishop.",
+    "difficulty_tier": "hard"
+  }
+}

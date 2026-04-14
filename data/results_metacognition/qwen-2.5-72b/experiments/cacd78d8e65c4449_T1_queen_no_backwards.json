@@ -1,0 +1,42 @@
+{
+  "experiment_id": "cacd78d8e65c4449",
+  "timestamp": 1776189859.432321,
+  "task_type": "T1",
+  "fen": "r2b2k1/pp3rpp/q2p1p2/3RnP2/2P1PB2/1P4Q1/P5PP/R6K b - - 0 22",
+  "rule_names": [
+    "queen_no_backwards"
+  ],
+  "model_moves": [
+    "d6d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d6d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: d6d5\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: The hardest part was ensuring that the move did not inadvertently place the queen in a position where it could move towards its own back rank in the future, but since the queen is not involved in this move, it was straightforward.",
+    "difficulty_tier": "easy"
+  }
+}

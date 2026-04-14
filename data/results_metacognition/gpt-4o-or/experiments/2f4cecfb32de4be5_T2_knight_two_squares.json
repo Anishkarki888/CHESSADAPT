@@ -1,0 +1,42 @@
+{
+  "experiment_id": "2f4cecfb32de4be5",
+  "timestamp": 1776187231.1995225,
+  "task_type": "T2",
+  "fen": "r5k1/pp3pp1/4r2p/2p4P/3pP3/1P1Pq3/PBP5/3K1R2 w - - 1 26",
+  "rule_names": [
+    "knight_two_squares"
+  ],
+  "model_moves": [
+    "d1e2"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d1e2",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: d1e2  \nCONFIDENCE: 10  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Understanding the exact movement restriction for knights was challenging initially.",
+    "difficulty_tier": "easy"
+  }
+}

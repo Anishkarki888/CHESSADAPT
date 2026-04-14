@@ -1,0 +1,30 @@
+{
+  "model": "gpt-4o-or",
+  "model_config": {
+    "name": "GPT-4o (OpenRouter)",
+    "tier": "frontier",
+    "model_id": "openai/gpt-4o"
+  },
+  "total_tasks": 100,
+  "skipped": 0,
+  "failed": 0,
+  "evaluated": 100,
+  "experiment_summary": {
+    "total_experiments": 100,
+    "avg_compliance": 0.5834,
+    "avg_inhibition": 0.9533,
+    "avg_flexibility": 1.0,
+    "avg_composite": 0.7776,
+    "total_moves_evaluated": 297,
+    "total_legal_moves": 175,
+    "total_inhibition_failures": 14,
+    "by_task_type": {
+      "T3": {
+        "count": 100,
+        "avg_compliance": 0.5834,
+        "avg_composite": 0.7776
+      }
+    }
+  },
+  "timestamp": 1776184916.0642357
+}

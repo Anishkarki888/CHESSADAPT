@@ -78,6 +78,27 @@ MODEL_CONFIGS: dict[str, ModelConfig] = {
         tier="mid",
         env_key="OPENROUTER_API_KEY",
     ),
+    "qwen-2.5-72b": ModelConfig(
+        name="Qwen 2.5 72B",
+        provider="openrouter",
+        model_id="qwen/qwen-2.5-72b-instruct",
+        tier="mid",
+        env_key="OPENROUTER_API_KEY",
+    ),
+    "gpt-4o-or": ModelConfig(
+        name="GPT-4o (OpenRouter)",
+        provider="openrouter",
+        model_id="openai/gpt-4o",
+        tier="frontier",
+        env_key="OPENROUTER_API_KEY",
+    ),
+    "claude-3.7-sonnet-or": ModelConfig(
+        name="Claude 3.7 Sonnet (OpenRouter)",
+        provider="openrouter",
+        model_id="anthropic/claude-3.7-sonnet",
+        tier="frontier",
+        env_key="OPENROUTER_API_KEY",
+    ),
 }
 
 

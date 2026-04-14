@@ -1,0 +1,42 @@
+{
+  "experiment_id": "4df86bf334204a49",
+  "timestamp": 1776188148.5676675,
+  "task_type": "T2",
+  "fen": "8/8/p4N1p/1p4p1/1PpK2P1/P5k1/2P5/8 w - - 0 35",
+  "rule_names": [
+    "capture_all_pawns"
+  ],
+  "model_moves": [
+    "f6a6"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "f6a6",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "claude-3.7-sonnet-or",
+    "raw_response": "MOVE: f6a6\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Remembering that the goal is to capture all opponent pawns rather than checkmate, which changes the evaluation of moves completely.",
+    "difficulty_tier": "easy"
+  }
+}

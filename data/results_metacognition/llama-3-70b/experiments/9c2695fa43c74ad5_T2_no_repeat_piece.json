@@ -1,0 +1,42 @@
+{
+  "experiment_id": "9c2695fa43c74ad5",
+  "timestamp": 1776189143.0621758,
+  "task_type": "T2",
+  "fen": "r1q2rk1/pb1nbppp/1p2p3/2p1P3/2P5/1P3NP1/PBQ2PBP/R3R1K1 b - - 2 16",
+  "rule_names": [
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "d5d4"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d5d4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.9,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d5d4\nCONFIDENCE: 9\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the pawn on d5 was not moved on the previous move, as it's a common move in this position.",
+    "difficulty_tier": "easy"
+  }
+}

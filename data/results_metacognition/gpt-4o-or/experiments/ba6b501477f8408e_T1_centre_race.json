@@ -1,0 +1,42 @@
+{
+  "experiment_id": "ba6b501477f8408e",
+  "timestamp": 1776187071.152337,
+  "task_type": "T1",
+  "fen": "rn1qkb1r/3n1p1p/p3p1pB/1p2P3/8/2N2P2/PPQ2P1P/1BRR2K1 w kq - 1 18",
+  "rule_names": [
+    "centre_race"
+  ],
+  "model_moves": [
+    "c3e4"
+  ],
+  "per_move_results": [
+    {
+      "legal": true,
+      "is_old_rule": true,
+      "uci_move": "c3e4",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 1.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 1.0,
+    "total_moves": 1,
+    "legal_moves": 1,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.0,
+      "error_detection_accuracy": 1.0,
+      "overconfidence_rate": 0.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "gpt-4o-or",
+    "raw_response": "MOVE: c3e4  \nCONFIDENCE: 10  \nLEGAL_PREDICTION: YES  \nHARDEST_PART: Identifying a move that directly places a piece on e4 was straightforward, so there was no difficult part in applying the rule.",
+    "difficulty_tier": "easy"
+  }
+}

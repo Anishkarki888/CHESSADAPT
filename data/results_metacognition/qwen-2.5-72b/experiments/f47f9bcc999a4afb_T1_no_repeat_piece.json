@@ -1,0 +1,42 @@
+{
+  "experiment_id": "f47f9bcc999a4afb",
+  "timestamp": 1776189838.4382913,
+  "task_type": "T1",
+  "fen": "r4rk1/1bp1q1p1/p1n1p2p/1p2Pp2/8/2PB4/PP2QPPP/R1BR2K1 w - - 3 16",
+  "rule_names": [
+    "no_repeat_piece"
+  ],
+  "model_moves": [
+    "e4e5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "e4e5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 1.0,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "qwen-2.5-72b",
+    "raw_response": "MOVE: e4e5\nCONFIDENCE: 10\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that the move does not violate the rule of moving the same piece twice in a row, as it requires careful tracking of the previous move.",
+    "difficulty_tier": "easy"
+  }
+}

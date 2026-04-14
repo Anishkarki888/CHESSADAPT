@@ -1,0 +1,42 @@
+{
+  "experiment_id": "f9bbc4d4a8d74c7d",
+  "timestamp": 1776188754.6158764,
+  "task_type": "T1",
+  "fen": "r2b2k1/pp3rpp/q2p1p2/3RnP2/2P1PB2/1P4Q1/P5PP/R6K b - - 0 22",
+  "rule_names": [
+    "two_moves_per_turn"
+  ],
+  "model_moves": [
+    "d7d5"
+  ],
+  "per_move_results": [
+    {
+      "legal": false,
+      "is_old_rule": false,
+      "uci_move": "d7d5",
+      "is_inhibition_failure": false,
+      "move_index": 0
+    }
+  ],
+  "score": {
+    "compliance_rate": 0.0,
+    "inhibition_score": 1.0,
+    "flexibility_index": 1.0,
+    "composite_score": 0.5,
+    "total_moves": 1,
+    "legal_moves": 0,
+    "inhibition_failures": 0,
+    "metacognition": {
+      "calibration_error": 0.8,
+      "error_detection_accuracy": 0.0,
+      "overconfidence_rate": 1.0,
+      "underconfidence_rate": 0.0,
+      "prospective_gap": null
+    }
+  },
+  "metadata": {
+    "model": "llama-3-70b",
+    "raw_response": "MOVE: d7d5 e7e5\nCONFIDENCE: 8\nLEGAL_PREDICTION: YES\nHARDEST_PART: Ensuring that both moves did not put my king in check or leave it in a position to be captured on the next move.",
+    "difficulty_tier": "easy"
+  }
+}
