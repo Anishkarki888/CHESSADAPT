@@ -13,7 +13,7 @@ make install
 
 Export your OpenRouter API key so the runner can access it:
 ```bash
-export OPENROUTER_API_KEY="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"
+export OPENROUTER_API_KEY="OPENROUTER_API_KEY"
 ```
 
 ## 3. Configured Models

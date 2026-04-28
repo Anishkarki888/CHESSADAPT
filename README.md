@@ -32,7 +32,7 @@ chess_benchmark/
 ├── pipeline/                # Data collection
 │   └── hf_loader.py         # Lichess → positions.jsonl via Hugging Face
 ├── docs/                    # Documentation
-│   └── writeup.md           # 1,500-word Kaggle competition writeup
+│   └── writeup.md           # Benchmark methodology and findings
 ├── data/                    # Generated data (gitignored)
 │   ├── positions/           # 500 unique middlegame positions
 │   ├── tasks/               # Generated benchmark task items
@@ -160,7 +160,7 @@ make clean           # Remove generated data
 ## Documentation
 
 - [Engine Overview](engine/README.md)
-- [Kaggle Writeup](docs/writeup.md)
+- [Writeup & Methodology](docs/writeup.md)
 - [Movement Rules](engine/rules/movement/README.md)
 - [Win Condition Rules](engine/rules/win_conditions/README.md)
 - [Turn Structure Rules](engine/rules/turn_structure/README.md)

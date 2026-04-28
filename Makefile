@@ -122,34 +122,14 @@ evaluate-all: $(TASKS) ## Evaluate all configured models
 	done
 	@echo "✓ All model evaluations complete"
 
-evaluate-hackathon: $(TASKS) ## Evaluate the 5 core hackathon models using OpenRouter
-	@for model in gpt-4o-or claude-3.7-sonnet-or llama-3-70b mistral-large qwen-2.5-72b; do \
-		for task_file in $(TASKS); do \
-			echo "Evaluating $$model on $$task_file..."; \
-			$(PYTHON) -m evaluation.runner --model $$model --tasks $$task_file \
-				$(if $(max-tasks),--max-tasks $(max-tasks)); \
-		done; \
-	done
-	@echo "✓ Hackathon model evaluations complete"
-
-evaluate-metacognition: $(TASKS_META) ## Run evaluation for the Metacognition track
-	@for model in gpt-4o-or claude-3.7-sonnet-or llama-3-70b mistral-large qwen-2.5-72b; do \
-		for task_file in $(TASKS_META); do \
-			echo "Evaluating $$model on $$task_file (Metacognition)..."; \
-			$(PYTHON) -m evaluation.runner --model $$model --tasks $$task_file \
-				--results-dir $(RESULTS_META_DIR) \
-				$(if $(max-tasks),--max-tasks $(max-tasks)); \
-		done; \
-	done
-	@echo "✓ Metacognition evaluations complete"
-
-evaluate-qwen: $(T1_TASKS) $(T2_TASKS) $(T3_TASKS) ## Evaluate Qwen 2.5 72B specifically
-	@for task_file in $(TASKS); do \
-		echo "Evaluating qwen-2.5-72b on $$task_file..."; \
-		$(PYTHON) -m evaluation.runner --model qwen-2.5-72b --tasks $$task_file \
+evaluate-metacognition: $(TASKS_META) ## Run evaluation for the Metacognition track (MODEL)
+	@for task_file in $(TASKS_META); do \
+		echo "Evaluating $(MODEL) on $$task_file (Metacognition)..."; \
+		$(PYTHON) -m evaluation.runner --model $(MODEL) --tasks $$task_file \
+			--results-dir $(RESULTS_META_DIR) \
 			$(if $(max-tasks),--max-tasks $(max-tasks)); \
 	done
-	@echo "✓ Qwen evaluation complete"
+	@echo "✓ Metacognition evaluations complete"
 
 dry-run: $(TASKS) ## Dry run (no API calls) to test pipeline
 	$(PYTHON) -m evaluation.runner --model $(MODEL) --tasks $(TASKS) \

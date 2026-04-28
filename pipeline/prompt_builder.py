@@ -1,4 +1,3 @@
-# pipeline/prompt_builder.py
 # Builds the natural language prompt delivered to the model under test.
 # Supports two variants:
 #   Variant A — named rule description (standard)

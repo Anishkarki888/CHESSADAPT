@@ -1,12 +1,49 @@
-.venv/
+# Environments
 .env
+.venv/
+env/
+venv/
+ENV/
+
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
 .pytest_cache/
 .coverage
 htmlcov/
-data/logs/
-.DS_Store
-.python-version
+*.log
 
-chessadapt-code.zip
-chessadapt-task.gz
+# Generated Data and Logs
+data/positions/*
+data/tasks/*
+data/tasks_metacognition/*
+data/results/*
+data/results_metacognition/*
+data/logs/*
+dataset.zip
+*.gz
+*.zip
+
+# Temporary
+dvs
+executive-function.txt
+
+# Keep data directory structure
+!data/positions/.gitkeep
+!data/tasks/.gitkeep
+!data/tasks_metacognition/.gitkeep
+!data/results/.gitkeep
+!data/results_metacognition/.gitkeep
+!data/logs/.gitkeep
+
+# IDE and OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project specific
+.python-version
+/home/anish/chess_benchmark/docs
