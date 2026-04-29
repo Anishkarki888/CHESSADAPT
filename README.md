@@ -1,46 +1,6 @@
 # ChessAdapt: Rule-Perturbed Chess Benchmark
 
-A publication-grade benchmark that measures **cognitive flexibility** and **inhibitory control** in frontier LLMs by perturbing the rules of chess — the most memorized game domain in AI training data.
-
-## Project Structure
-
-```
-chess_benchmark/
-├── engine/                  # Core perturbation engine (python-chess)
-│   ├── base.py              # PerturbedBoard base class
-│   ├── registry.py          # Rule name → class mapping
-│   ├── validator.py         # Move validation (perturbed vs standard)
-│   ├── legal_moves.py       # Cached legal move generation
-│   ├── rules/               # 8 perturbation implementations
-│   │   ├── movement/        # Bishop-as-rook, knight-2sq, queen-no-back, pawn-fwd-capture
-│   │   ├── win_conditions/  # Capture-all-pawns, centre-race
-│   │   └── turn_structure/  # Two-moves-per-turn, no-repeat-piece
-│   ├── composition/         # Rule stacking, logging, experiment tracking
-│   │   ├── composer.py      # RuleComposer — multi-rule stacking
-│   │   ├── mixins.py        # LoggingMixin + StateTrackingMixin
-│   │   ├── metrics.py       # Composite scoring (compliance, inhibition, flexibility)
-│   │   └── experiment.py    # ExperimentRunner with JSON persistence
-│   ├── tests/               # Test suite
-│   └── utils/               # Board visualizer
-├── evaluation/              # LLM benchmark evaluation pipeline
-│   ├── llm_client.py        # GPT-4o, Claude, Gemini, Llama, Mistral adapters
-│   ├── prompt_builder.py    # T1/T2/T3 prompt templates
-│   ├── response_parser.py   # UFC move extraction from model output
-│   ├── task_generator.py    # Task item creation from positions
-│   ├── runner.py            # Benchmark orchestrator with checkpoint resume
-│   └── analysis.py          # Results tables, gradient verification, reporting
-├── pipeline/                # Data collection
-│   └── hf_loader.py         # Lichess → positions.jsonl via Hugging Face
-├── docs/                    # Documentation
-│   └── writeup.md           # Benchmark methodology and findings
-├── data/                    # Generated data (gitignored)
-│   ├── positions/           # 500 unique middlegame positions
-│   ├── tasks/               # Generated benchmark task items
-│   ├── results/             # Per-model evaluation results
-│   └── logs/                # Structured log files
-├── Makefile                 # Build automation
-└── requirements.txt         # Python dependencies
-```
+A benchmark that measures **cognitive flexibility** and **inhibitory control** in frontier LLMs by perturbing the rules of chess, the most memorized game domain in AI training data.
 
 ## Quick Start
 
